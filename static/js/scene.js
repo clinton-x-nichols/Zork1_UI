@@ -1,7 +1,7 @@
 /* Scene objects are a projection of the interpreter's object tree. */
 const ZorkScene = (() => {
   let state, command, begin, host, stage, image, menu, busy = false;
-  let roomExits = {};
+  const roomExits = window.ZORK_ROOM_EXITS;
   const NS = 'http://www.w3.org/2000/svg';
   const icons = {
     10:'figurine',12:'torch',14:'food',17:'matches',23:'trident',24:'leaflet',26:'candle',
@@ -42,10 +42,6 @@ const ZorkScene = (() => {
   function init(sendCommand, beginGame) {
     command = sendCommand;
     begin = beginGame;
-    fetch('/static/room-exits.json').then(r => r.json()).then(data => {
-      roomExits = data;
-      if (state) highlightExits(state);
-    });
     host = document.getElementById('scene-view');
     menu = document.getElementById('object-actions');
     document.querySelectorAll('#scene-compass button').forEach(button => {

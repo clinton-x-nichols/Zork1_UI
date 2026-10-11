@@ -1,7 +1,18 @@
 /* The original story executes in ifvms.js. Scenes read its live object memory. */
 window.BrowserGame = (() => {
   const D = window.ZORK_DATA, story = Uint8Array.from(D.story);
-  const assets = new Set(D.assets), roomIds = Object.fromEntries(Object.entries(D.roomObjects).map(([k,v]) => [v,k]));
+  const correctedMazeRooms = {
+    'MAZE-1':D.roomObjects['MAZE-8'],'MAZE-2':D.roomObjects['MAZE-1'],'MAZE-3':D.roomObjects['MAZE-6'],
+    'MAZE-4':D.roomObjects['MAZE-14'],'MAZE-5':D.roomObjects['MAZE-15'],'MAZE-6':D.roomObjects['MAZE-9'],
+    'MAZE-7':D.roomObjects['MAZE-11'],'MAZE-8':D.roomObjects['MAZE-4'],'MAZE-9':D.roomObjects['MAZE-7'],
+    'MAZE-10':D.roomObjects['MAZE-2'],'MAZE-11':D.roomObjects['MAZE-10'],'MAZE-12':D.roomObjects['MAZE-3'],
+    'MAZE-13':D.roomObjects['MAZE-12'],'MAZE-14':D.roomObjects['MAZE-5'],'MAZE-15':D.roomObjects['MAZE-13'],
+    'DEAD-END-1':D.roomObjects['DEAD-END-3'],'DEAD-END-2':D.roomObjects['DEAD-END-1'],
+    'DEAD-END-3':D.roomObjects['DEAD-END-2'],
+  };
+  const assets = new Set(D.assets);
+  const roomObjects = {...D.roomObjects,...correctedMazeRooms};
+  const roomIds = Object.fromEntries(Object.entries(roomObjects).map(([k,v]) => [v,k]));
   let vm, output = '', state, exportedSave, restoring, lastCommand = null;
   const commands = ['reveal map', 'illuminate', 'teleport', 'carry everything'];
   const clean = text => text.replace(/\r/g, '\n').replace(/\n*>\s*$/, '').trim();
@@ -172,7 +183,7 @@ window.BrowserGame = (() => {
         state.no_weight_limit=true;state.output='[Your pack now holds anything.]';
       }
     }else if(text.startsWith('#teleport:')){
-      const target=D.roomObjects[text.slice(10)];
+      const target=roomObjects[text.slice(10)];
       if(!state.teleport_enabled||!target)throw new Error('Teleport unavailable');
       vm.m.setUint16(vm.globals,target);vm.insert_obj(44,target);run('look');
     }else if(low==='save'){download();state.output='[Save downloaded.]';}
