@@ -1,7 +1,9 @@
 /* The original story executes in ifvms.js. Scenes read its live object memory. */
 window.BrowserGame = (() => {
   const D = window.ZORK_DATA, story = Uint8Array.from(D.story);
-  const correctedMazeRooms = {
+  // The exporter keyed duplicate room labels by encounter order. Restore the
+  // source room identities so movement, compass data, and map tiles agree.
+  const correctedRoomObjects = {
     'MAZE-1':D.roomObjects['MAZE-8'],'MAZE-2':D.roomObjects['MAZE-1'],'MAZE-3':D.roomObjects['MAZE-6'],
     'MAZE-4':D.roomObjects['MAZE-14'],'MAZE-5':D.roomObjects['MAZE-15'],'MAZE-6':D.roomObjects['MAZE-9'],
     'MAZE-7':D.roomObjects['MAZE-11'],'MAZE-8':D.roomObjects['MAZE-4'],'MAZE-9':D.roomObjects['MAZE-7'],
@@ -9,9 +11,15 @@ window.BrowserGame = (() => {
     'MAZE-13':D.roomObjects['MAZE-12'],'MAZE-14':D.roomObjects['MAZE-5'],'MAZE-15':D.roomObjects['MAZE-13'],
     'DEAD-END-1':D.roomObjects['DEAD-END-3'],'DEAD-END-2':D.roomObjects['DEAD-END-1'],
     'DEAD-END-3':D.roomObjects['DEAD-END-2'],
+    'MINE-1':D.roomObjects['MINE-4'],'MINE-4':D.roomObjects['MINE-1'],
+    'MIRROR-ROOM-1':D.roomObjects['MIRROR-ROOM-2'],'MIRROR-ROOM-2':D.roomObjects['MIRROR-ROOM-1'],
+    'RIVER-2':D.roomObjects['RIVER-4'],'RIVER-3':D.roomObjects['RIVER-2'],
+    'RIVER-4':D.roomObjects['RIVER-5'],'RIVER-5':D.roomObjects['RIVER-3'],
+    'WHITE-CLIFFS-NORTH':D.roomObjects['WHITE-CLIFFS-SOUTH'],
+    'WHITE-CLIFFS-SOUTH':D.roomObjects['WHITE-CLIFFS-NORTH'],
   };
   const assets = new Set(D.assets);
-  const roomObjects = {...D.roomObjects,...correctedMazeRooms};
+  const roomObjects = {...D.roomObjects,...correctedRoomObjects};
   const roomIds = Object.fromEntries(Object.entries(roomObjects).map(([k,v]) => [v,k]));
   let vm, output = '', state, exportedSave, restoring, lastCommand = null;
   const commands = ['reveal map', 'illuminate', 'teleport', 'carry everything'];
@@ -161,6 +169,10 @@ window.BrowserGame = (() => {
       troll_alive:objects[150].parent===127,troll_blocks_exits:objects[150].parent===127&&property(150,7)>=0,
       cyclops_present:objects[199].parent===78,reservoir_empty:flag(objects[95],'RLANDBIT'),grating_visible:!flag(objects[29],'INVISIBLE'),
       grating_open:flag(objects[29],'OPENBIT'),rope_tied:flag(objects[58],'NDESCBIT')&&objects[58].parent===11,
+      hades_open:objects[211].parent!==38,rainbow_solid:!flag(objects[154],'INVISIBLE'),
+      in_boat:objects[44].parent===208,boat_deflated:objects[208].parent!==44,
+      coffin_passage_open:objects[179].parent!==44,
+      chimney_passable:objects[146].parent===44&&Object.values(objects).filter(o=>o.parent===44).length<=2,
       mirror_broken:!!m.getUint16(globals+70),dark:!(flag(objects[here],'ONBIT')||[...scene,...carried].some(o=>o.light&&o.lit)),scene_sync_error:null,locked_scenes:[]});
     selectScene(s);return structuredClone(s);
   }

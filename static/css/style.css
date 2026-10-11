@@ -520,6 +520,25 @@ body.resizing-row   { user-select: none !important; }
 .map-edge.vertical-edge { stroke-dasharray: 5 4; stroke: #7a6cae; }
 .map-edge.vertical-edge.visited-edge { stroke: #b3a3e0; }
 
+.map-level-region {
+  fill: rgba(228, 219, 194, 0.025);
+  stroke: #554e3c;
+  stroke-width: 1.5;
+  stroke-dasharray: 10 6;
+}
+.map-level-label {
+  fill: #928569;
+  font: 600 12px Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+}
+.map-level-portal { stroke: #b3a3e0; stroke-width: 3; }
+.map-level-portal.current { stroke: var(--accent); }
+.map-level-portal-label {
+  fill: #c9bceb;
+  font: 700 10px ui-monospace, "Courier New", monospace;
+  letter-spacing: 0;
+}
+
 .zone-label { fill: #6e6448; font-size: 9px; font-family: Georgia, serif; opacity: 0.5; }
 
 /* zoom controls */

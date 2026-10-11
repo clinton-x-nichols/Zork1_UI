@@ -19,6 +19,7 @@ const ZorkMap = (() => {
   // number-free directional markers (scene numbers live only in the builder).
   let edges       = [];    // [{a:{t:"c",id,dir}, b:{t:"c",id,dir}, kind}]
   let connectorsList = []; // [{tile,dir,target}]
+  let levelSections = [];
   const _FACE_SHORT = { n:[0,-.5], ne:[.5,-.5], e:[.5,0], se:[.5,.5],
                         s:[0,.5], sw:[-.5,.5], w:[-.5,0], nw:[-.5,-.5] };
   const _DIR_SHORT  = { north:"n",south:"s",east:"e",west:"w",northeast:"ne",
@@ -89,6 +90,7 @@ const ZorkMap = (() => {
           .catch(() => _buildFallbackEdges());
       })
       .then(() => {
+        _separateLevels();
         _recomputeBounds();
         _render();
         _fitToRevealed();
@@ -102,6 +104,8 @@ const ZorkMap = (() => {
       a: { t: "c", id: c[0], dir: _DIR_SHORT[c[3]] || "n" },
       b: { t: "c", id: c[1], dir: _DIR_SHORT[c[4]] || "n" },
       kind: c[2] || "level",
+      levelChange: _isLevelChange(c),
+      levelDirs: _levelDirections(c),
     }));
   }
 
@@ -116,11 +120,110 @@ const ZorkMap = (() => {
       }
     }
     const conv = ep => Array.isArray(ep) ? { t: "c", id: ep[0], dir: _DIR_SHORT[ep[1]] || ep[1] || "n" } : ep;
-    edges = (L.links || []).map(ln => ({ a: conv(ln.a), b: conv(ln.b), kind: ln.kind || "level" }))
+    edges = (L.links || []).map(ln => {
+      const a = conv(ln.a), b = conv(ln.b);
+      const source = _sourceConnection(a?.id, b?.id);
+      return { a, b, kind: ln.kind || "level", levelChange: _isLevelChange(source), levelDirs: _levelDirections(source) };
+    })
                            .filter(e => e.a && e.b && e.a.t === "c" && e.b.t === "c");
+    const linkedPairs = new Set(edges.map(e => [e.a.id, e.b.id].sort().join("\0")));
+    for (const c of (mapData.connections || []).filter(_isLevelChange)) {
+      const key = [c[0], c[1]].sort().join("\0");
+      if (linkedPairs.has(key)) continue;
+      edges.push({
+        a:{ t:"c", id:c[0], dir:_DIR_SHORT[c[3]] || "n" },
+        b:{ t:"c", id:c[1], dir:_DIR_SHORT[c[4]] || "s" },
+        kind:"vertical", levelChange:true, levelDirs:_levelDirections(c),
+      });
+    }
     connectorsList = (L.connectors || [])
       .map(c => ({ tile: c.tile, dir: _DIR_SHORT[c.dir] || c.dir || "n" }))
       .filter(c => mapData.rooms[c.tile]);
+  }
+
+  function _isLevelChange(connection) {
+    return !!connection && (connection[2] === "vertical" ||
+      [connection[3], connection[4]].some(d => d === "up" || d === "down"));
+  }
+
+  function _levelDirections(connection) {
+    if (!connection) return [];
+    const directions = connection.slice(3, 5);
+    const vertical = connection.slice(0, 2).map(id =>
+      (window.ZORK_DATA.exits[id] || []).filter(d => d === "up" || d === "down"));
+    for (let i = 0; i < 2; i++) {
+      if (directions[i] === "up" || directions[i] === "down") continue;
+      if (vertical[i].length === 1) directions[i] = vertical[i][0];
+    }
+    for (let i = 0; i < 2; i++) {
+      if (directions[i] === "up" || directions[i] === "down" || vertical[i].length < 2) continue;
+      const opposite = directions[1 - i] === "up" ? "down" : directions[1 - i] === "down" ? "up" : null;
+      if (opposite && vertical[i].includes(opposite)) directions[i] = opposite;
+    }
+    return directions;
+  }
+
+  function _sourceConnection(a, b) {
+    const connection = (mapData.connections || []).find(c =>
+      (c[0] === a && c[1] === b) || (c[0] === b && c[1] === a));
+    if (!connection || connection[0] === a) return connection;
+    return [connection[1], connection[0], connection[2], connection[4], connection[3]];
+  }
+
+  // Removing true up/down links leaves the horizontal networks that belong on
+  // one map level. Pack each network into its own region without changing its
+  // internal geometry; vertical travel is rendered as paired portals below.
+  function _separateLevels() {
+    const roomIds = Object.keys(mapData.rooms || {});
+    const adjacent = Object.fromEntries(roomIds.map(id => [id, []]));
+    for (const c of (mapData.connections || [])) {
+      if (_isLevelChange(c)) continue;
+      if (adjacent[c[0]] && adjacent[c[1]]) {
+        adjacent[c[0]].push(c[1]);
+        adjacent[c[1]].push(c[0]);
+      }
+    }
+
+    const seen = new Set();
+    const components = [];
+    for (const id of roomIds) {
+      if (seen.has(id)) continue;
+      const rooms = [], stack = [id];
+      seen.add(id);
+      while (stack.length) {
+        const room = stack.pop();
+        rooms.push(room);
+        for (const next of adjacent[room]) if (!seen.has(next)) {
+          seen.add(next);
+          stack.push(next);
+        }
+      }
+      components.push(rooms);
+    }
+
+    const measured = components.map(rooms => {
+      const points = rooms.map(id => mapData.rooms[id]);
+      const xs = points.map(r => r.x), ys = points.map(r => r.y);
+      return { rooms, minX:Math.min(...xs), maxX:Math.max(...xs), minY:Math.min(...ys), maxY:Math.max(...ys) };
+    });
+    measured.sort((a, b) => {
+      const rank = c => c.rooms.includes("WEST-OF-HOUSE") ? 0 : c.rooms.includes("CELLAR") ? 1 : 2;
+      return rank(a) - rank(b) || (b.maxY - b.minY) - (a.maxY - a.minY) || a.minY - b.minY;
+    });
+
+    const PAD_X = 90, PAD_TOP = 78, PAD_BOTTOM = 62, GAP = 70, ROW_WIDTH = 4300;
+    let x = GAP, y = GAP, rowHeight = 0;
+    levelSections = measured.map((part, index) => {
+      const width = Math.max(250, part.maxX - part.minX + PAD_X * 2);
+      const height = Math.max(210, part.maxY - part.minY + PAD_TOP + PAD_BOTTOM);
+      if (x > GAP && x + width > ROW_WIDTH) { x = GAP; y += rowHeight + GAP; rowHeight = 0; }
+      const section = { x, y, width, height, index:index + 1, rooms:part.rooms };
+      const dx = x + PAD_X - part.minX, dy = y + PAD_TOP - part.minY;
+      for (const id of part.rooms) { mapData.rooms[id].x += dx; mapData.rooms[id].y += dy; }
+      x += width + GAP;
+      rowHeight = Math.max(rowHeight, height);
+      return section;
+    });
   }
 
   // SVG canvas bounds from current room positions.
@@ -128,8 +231,8 @@ const ZorkMap = (() => {
     const xs = [], ys = [];
     for (const id in (mapData.rooms || {})) { xs.push(mapData.rooms[id].x); ys.push(mapData.rooms[id].y); }
     if (!xs.length) return;
-    SVG_W = Math.max(...xs) + 120;
-    SVG_H = Math.max(...ys) + 120;
+    SVG_W = Math.max(...xs, ...levelSections.map(s => s.x + s.width)) + 70;
+    SVG_H = Math.max(...ys, ...levelSections.map(s => s.y + s.height)) + 70;
     svgEl.setAttribute("width", SVG_W);
     svgEl.setAttribute("height", SVG_H);
   }
@@ -149,14 +252,28 @@ const ZorkMap = (() => {
     if (!mapData) return;
     rootG.innerHTML = "";
 
+    const sectionG = _group();
     const edgeG = _group();
     const ocG   = _group();
     // NOTE: edges carry no #mapInkRough filter — a zero-area (axis-aligned) line's
     // objectBoundingBox filter region collapses and the line never paints.
     const nodeG = _group();
+    rootG.appendChild(sectionG);
     rootG.appendChild(edgeG);
     rootG.appendChild(ocG);
     rootG.appendChild(nodeG);
+
+    for (const section of levelSections) {
+      const visible = revealAll || section.rooms.some(id => visited.has(id) || id === currentRoom);
+      if (!visible) continue;
+      sectionG.appendChild(_el("rect", {
+        x:section.x, y:section.y, width:section.width, height:section.height,
+        rx:4, class:"map-level-region",
+      }));
+      const label = _el("text", { x:section.x + 14, y:section.y + 24, class:"map-level-label" });
+      label.textContent = `LEVEL ${String(section.index).padStart(2, "0")}`;
+      sectionG.appendChild(label);
+    }
 
     // Centroid of all rooms — connectors bow away from it so loops read as rings.
     const allRooms = Object.values(mapData.rooms);
@@ -170,6 +287,14 @@ const ZorkMap = (() => {
       const rooms = [A.room, B.room].filter(Boolean);
       const isVisited = revealAll || rooms.every(r => visited.has(r));
       const isCurrent = rooms.indexOf(currentRoom) !== -1;
+
+      if (e.levelChange) {
+        if (isVisited || revealAll) {
+          _drawLevelPortal(edgeG, A, e.levelDirs?.[0], isCurrent);
+          _drawLevelPortal(edgeG, B, e.levelDirs?.[1], isCurrent);
+        }
+        continue;
+      }
 
       const mx = (A.x + B.x) / 2, my = (A.y + B.y) / 2;
       let nx = -(B.y - A.y), ny = (B.x - A.x);
@@ -284,6 +409,21 @@ const ZorkMap = (() => {
 
       nodeG.appendChild(g);
     }
+  }
+
+  function _drawLevelPortal(group, anchor, direction, current) {
+    const up = direction === "up";
+    const down = direction === "down";
+    const sign = up ? -1 : 1;
+    const x = anchor.x, y = anchor.y + sign * 13;
+    group.appendChild(_el("path", {
+      d:`M ${x - 8} ${y - sign * 5} L ${x} ${y + sign * 3} L ${x + 8} ${y - sign * 5}`,
+      class:"map-level-portal" + (current ? " current" : ""), fill:"none",
+    }));
+    const label = _el("text", { x, y:y + sign * 14, "text-anchor":"middle", class:"map-level-portal-label" });
+    const labels = { north:"N", northeast:"NE", east:"E", southeast:"SE", south:"S", southwest:"SW", west:"W", northwest:"NW" };
+    label.textContent = up ? "U" : down ? "D" : labels[direction] || "↕";
+    group.appendChild(label);
   }
 
   // ── Public API ─────────────────────────────────────────────────────────────

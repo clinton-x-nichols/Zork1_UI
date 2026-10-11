@@ -1,7 +1,7 @@
 /* Scene objects are a projection of the interpreter's object tree. */
 const ZorkScene = (() => {
   let state, command, begin, host, stage, image, menu, busy = false;
-  const roomExits = window.ZORK_ROOM_EXITS;
+  const roomExits = window.ZORK_DATA.exits;
   const NS = 'http://www.w3.org/2000/svg';
   const icons = {
     10:'figurine',12:'torch',14:'food',17:'matches',23:'trident',24:'leaflet',26:'candle',
@@ -65,13 +65,28 @@ const ZorkScene = (() => {
     const gates = {
       'EAST-OF-HOUSE': {west: next.window_open},
       'KITCHEN': {east: next.window_open},
-      'LIVING-ROOM': {down: next.trapdoor_open},
+      'LIVING-ROOM': {west: !next.cyclops_present, down: next.trapdoor_open},
       'CELLAR': {up: next.trapdoor_open},
       'GRATING-CLEARING': {down: next.grating_visible && next.grating_open},
       'GRATING-ROOM': {up: next.grating_open},
       'DOME-ROOM': {down: next.rope_tied},
       'TROLL-ROOM': {east: !next.troll_blocks_exits, west: !next.troll_blocks_exits},
-      'CYCLOPS-ROOM': {up: !next.cyclops_present},
+      'CYCLOPS-ROOM': {east: !next.cyclops_present, up: !next.cyclops_present},
+      'RESERVOIR-SOUTH': {north: next.reservoir_empty},
+      'RESERVOIR-NORTH': {south: next.reservoir_empty},
+      'RESERVOIR': {west: next.in_boat, up: next.in_boat},
+      'IN-STREAM': {east: next.in_boat, down: next.in_boat},
+      'RIVER-1': {down: next.in_boat},
+      'RIVER-2': {down: next.in_boat},
+      'RIVER-3': {down: next.in_boat},
+      'RIVER-4': {down: next.in_boat},
+      'WHITE-CLIFFS-NORTH': {south: next.boat_deflated, west: next.boat_deflated},
+      'WHITE-CLIFFS-SOUTH': {north: next.boat_deflated},
+      'ENTRANCE-TO-HADES': {south: next.hades_open},
+      'ARAGAIN-FALLS': {west: next.rainbow_solid, up: next.rainbow_solid},
+      'END-OF-RAINBOW': {east: next.rainbow_solid, northeast: next.rainbow_solid, up: next.rainbow_solid},
+      'SOUTH-TEMPLE': {down: next.coffin_passage_open},
+      'STUDIO': {up: next.chimney_passable},
     };
     for (const [direction, open] of Object.entries(gates[next.room_id] || {})) {
       if (!open) exits.delete(direction);
