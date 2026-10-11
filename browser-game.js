@@ -85,6 +85,7 @@ window.BrowserGame = (() => {
     if(dir==='living_room')variants.push(s.trapdoor_open?'scene_trapdoor_open':s.rug_moved?'scene_rug_moved':'scene');
     if(dir==='troll_room'&&!s.troll_alive)variants.push('troll_defeated_taken');
     if(dir==='cyclops_room'&&!s.cyclops_present)variants.push('cyclops_gone');
+    if(dir==='shaft_room'&&s.scene_objects.some(o=>o.id===108))variants.push('scene_basket_attached');
     if(dir==='machine_room'&&s.scene_objects.some(o=>o.id===207&&o.open))variants.push('scene_open');
     const cleanRooms={kitchen:'table_clear',living_room:'both_taken',atlantis_room:'trident_taken',egypt_room:'coffin_taken'};
     s.scene_image=asset(dir,[...variants,'scene',cleanRooms[dir]||'default','default']);

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-10-10",
+  "assets": [
+    {
+      "path": "images/locations/shaft_room/scene_basket_attached.png",
+      "source": "images/locations/shaft_room/scene.png",
+      "state": "Shaft Room with the raised basket attached to the chain",
+      "status": "complete",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "4cb666991c062b1d9367f8b85d7e688a2c2979d9ab2d90e8477f122338badd2c",
+      "validated": true
+    }
+  ]
+}
