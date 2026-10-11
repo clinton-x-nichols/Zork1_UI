@@ -105,7 +105,7 @@ const ZorkScene = (() => {
       variant = item.open ? (full ? 'open' : 'open_empty') : (full ? 'scene' : 'empty');
     }
     else if (item.open && ['egg','bag','coffin','chest','book','tube'].includes(icon)) variant = 'open';
-    img.src = `images/objects/${icon}/${variant}.svg?v=2`;
+    img.src = icon === 'axe' ? 'images/objects/axe/default.jpg' : `images/objects/${icon}/${variant}.svg?v=2`;
     img.alt = '';
     img.className = 'object-icon' + (item.light && item.lit ? ' lit' : '');
     img.onerror = () => { img.onerror = null; img.src = `images/objects/${icon}/scene.svg`; };
