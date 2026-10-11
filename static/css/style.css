@@ -531,11 +531,14 @@ body.resizing-row   { user-select: none !important; }
   font: 600 12px Georgia, "Times New Roman", serif;
   letter-spacing: 0;
 }
-.map-level-portal { stroke: #b3a3e0; stroke-width: 3; }
-.map-level-portal.current { stroke: var(--accent); }
-.map-level-portal-label {
-  fill: #c9bceb;
-  font: 700 10px ui-monospace, "Courier New", monospace;
+.map-level-badge-bg {
+  fill: #171325;
+  stroke: #c9bceb;
+  stroke-width: 1;
+}
+.map-level-badge {
+  fill: #e2d8ff;
+  font: 700 8px ui-monospace, "Courier New", monospace;
   letter-spacing: 0;
 }
 

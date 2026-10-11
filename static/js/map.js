@@ -20,6 +20,7 @@ const ZorkMap = (() => {
   let edges       = [];    // [{a:{t:"c",id,dir}, b:{t:"c",id,dir}, kind}]
   let connectorsList = []; // [{tile,dir,target}]
   let levelSections = [];
+  let roomLevelDirections = {};
   const _FACE_SHORT = { n:[0,-.5], ne:[.5,-.5], e:[.5,0], se:[.5,.5],
                         s:[0,.5], sw:[-.5,.5], w:[-.5,0], nw:[-.5,-.5] };
   const _DIR_SHORT  = { north:"n",south:"s",east:"e",west:"w",northeast:"ne",
@@ -32,6 +33,7 @@ const ZorkMap = (() => {
   let dragging = false;
   let dragStart = { x: 0, y: 0, tx: 0, ty: 0 };
   let userMoved = false;    // once the user pans/zooms, stop auto-framing
+  let currentLevel = null;
 
   let SVG_W = 1500, SVG_H = 1300;   // overwritten by computed layout bounds
   const NODE_W = 60, NODE_H = 60;   // square top-down map tile
@@ -82,6 +84,7 @@ const ZorkMap = (() => {
       .then(r => r.json())
       .then(data => {
         mapData = data;
+        _indexLevelDirections();
         // If the user has saved a hand-built layout, that becomes the live map;
         // otherwise fall back to the computed game layout.
         return fetch("/api/map-builder/load")
@@ -105,7 +108,6 @@ const ZorkMap = (() => {
       b: { t: "c", id: c[1], dir: _DIR_SHORT[c[4]] || "n" },
       kind: c[2] || "level",
       levelChange: _isLevelChange(c),
-      levelDirs: _levelDirections(c),
     }));
   }
 
@@ -123,7 +125,7 @@ const ZorkMap = (() => {
     edges = (L.links || []).map(ln => {
       const a = conv(ln.a), b = conv(ln.b);
       const source = _sourceConnection(a?.id, b?.id);
-      return { a, b, kind: ln.kind || "level", levelChange: _isLevelChange(source), levelDirs: _levelDirections(source) };
+      return { a, b, kind: ln.kind || "level", levelChange: _isLevelChange(source) };
     })
                            .filter(e => e.a && e.b && e.a.t === "c" && e.b.t === "c");
     const linkedPairs = new Set(edges.map(e => [e.a.id, e.b.id].sort().join("\0")));
@@ -133,12 +135,13 @@ const ZorkMap = (() => {
       edges.push({
         a:{ t:"c", id:c[0], dir:_DIR_SHORT[c[3]] || "n" },
         b:{ t:"c", id:c[1], dir:_DIR_SHORT[c[4]] || "s" },
-        kind:"vertical", levelChange:true, levelDirs:_levelDirections(c),
+        kind:"vertical", levelChange:true,
       });
     }
+    const roomsByNumber = Object.fromEntries(Object.entries(L.tiles || {}).map(([id, tile]) => [tile.num, id]));
     connectorsList = (L.connectors || [])
-      .map(c => ({ tile: c.tile, dir: _DIR_SHORT[c.dir] || c.dir || "n" }))
-      .filter(c => mapData.rooms[c.tile]);
+      .map(c => ({ tile:c.tile, dir:_DIR_SHORT[c.dir] || c.dir || "n", targetRoom:roomsByNumber[c.target] }))
+      .filter(c => mapData.rooms[c.tile] && !_isLevelChange(_sourceConnection(c.tile, c.targetRoom)));
   }
 
   function _isLevelChange(connection) {
@@ -161,6 +164,17 @@ const ZorkMap = (() => {
       if (opposite && vertical[i].includes(opposite)) directions[i] = opposite;
     }
     return directions;
+  }
+
+  function _indexLevelDirections() {
+    roomLevelDirections = Object.fromEntries(Object.keys(mapData.rooms || {}).map(id => [id, new Set()]));
+    for (const connection of (mapData.connections || []).filter(_isLevelChange)) {
+      const directions = _levelDirections(connection);
+      for (let i = 0; i < 2; i++) {
+        if (directions[i] === "up" || directions[i] === "down")
+          roomLevelDirections[connection[i]]?.add(directions[i]);
+      }
+    }
   }
 
   function _sourceConnection(a, b) {
@@ -201,15 +215,27 @@ const ZorkMap = (() => {
       components.push(rooms);
     }
 
-    const measured = components.map(rooms => {
+    let measured = components.map(rooms => {
       const points = rooms.map(id => mapData.rooms[id]);
       const xs = points.map(r => r.x), ys = points.map(r => r.y);
       return { rooms, minX:Math.min(...xs), maxX:Math.max(...xs), minY:Math.min(...ys), maxY:Math.max(...ys) };
     });
-    measured.sort((a, b) => {
-      const rank = c => c.rooms.includes("WEST-OF-HOUSE") ? 0 : c.rooms.includes("CELLAR") ? 1 : 2;
-      return rank(a) - rank(b) || (b.maxY - b.minY) - (a.maxY - a.minY) || a.minY - b.minY;
-    });
+    const componentForRoom = {};
+    measured.forEach((part, index) => part.rooms.forEach(id => { componentForRoom[id] = index; }));
+    const neighbors = measured.map(() => new Set());
+    for (const c of (mapData.connections || []).filter(_isLevelChange)) {
+      const a = componentForRoom[c[0]], b = componentForRoom[c[1]];
+      if (a !== b) { neighbors[a].add(b); neighbors[b].add(a); }
+    }
+    const start = measured.findIndex(part => part.rooms.includes("WEST-OF-HOUSE"));
+    const order = [], queued = new Set(start >= 0 ? [start] : []), queue = start >= 0 ? [start] : [];
+    while (queue.length) {
+      const index = queue.shift();
+      order.push(index);
+      for (const next of neighbors[index]) if (!queued.has(next)) { queued.add(next); queue.push(next); }
+    }
+    measured.forEach((_, index) => { if (!queued.has(index)) order.push(index); });
+    measured = order.map(index => measured[index]);
 
     const PAD_X = 90, PAD_TOP = 78, PAD_BOTTOM = 62, GAP = 70, ROW_WIDTH = 4300;
     let x = GAP, y = GAP, rowHeight = 0;
@@ -289,10 +315,6 @@ const ZorkMap = (() => {
       const isCurrent = rooms.indexOf(currentRoom) !== -1;
 
       if (e.levelChange) {
-        if (isVisited || revealAll) {
-          _drawLevelPortal(edgeG, A, e.levelDirs?.[0], isCurrent);
-          _drawLevelPortal(edgeG, B, e.levelDirs?.[1], isCurrent);
-        }
         continue;
       }
 
@@ -397,6 +419,18 @@ const ZorkMap = (() => {
         g.appendChild(dot);
       }
 
+      for (const direction of (roomLevelDirections[id] || [])) {
+        const up = direction === "up";
+        const cy = up ? ry + 9 : ry + NODE_H - 9;
+        g.appendChild(_el("circle", { class:"map-level-badge-bg", cx:rx + NODE_W - 9, cy, r:7 }));
+        const badge = _el("text", {
+          class:"map-level-badge", x:rx + NODE_W - 9, y:cy + 3,
+          "text-anchor":"middle", "pointer-events":"none",
+        });
+        badge.textContent = up ? "U" : "D";
+        g.appendChild(badge);
+      }
+
       if (show && teleportEnabled) {
         g.style.cursor = "pointer";
         g.addEventListener("click", () => {
@@ -411,21 +445,6 @@ const ZorkMap = (() => {
     }
   }
 
-  function _drawLevelPortal(group, anchor, direction, current) {
-    const up = direction === "up";
-    const down = direction === "down";
-    const sign = up ? -1 : 1;
-    const x = anchor.x, y = anchor.y + sign * 13;
-    group.appendChild(_el("path", {
-      d:`M ${x - 8} ${y - sign * 5} L ${x} ${y + sign * 3} L ${x + 8} ${y - sign * 5}`,
-      class:"map-level-portal" + (current ? " current" : ""), fill:"none",
-    }));
-    const label = _el("text", { x, y:y + sign * 14, "text-anchor":"middle", class:"map-level-portal-label" });
-    const labels = { north:"N", northeast:"NE", east:"E", southeast:"SE", south:"S", southwest:"SW", west:"W", northwest:"NW" };
-    label.textContent = up ? "U" : down ? "D" : labels[direction] || "↕";
-    group.appendChild(label);
-  }
-
   // ── Public API ─────────────────────────────────────────────────────────────
 
   function update(visitedList, roomId, reveal, teleport) {
@@ -433,11 +452,17 @@ const ZorkMap = (() => {
     currentRoom = roomId || null;
     revealAll  = !!reveal;
     teleportEnabled = !!teleport;
+    const nextLevel = levelSections.findIndex(section => section.rooms.includes(currentRoom));
+    const changedLevel = currentLevel !== null && nextLevel !== currentLevel;
+    currentLevel = nextLevel;
     _render();
     // Keep the revealed area framed and readable until the user takes manual
-    // control of pan/zoom. Early game this makes adjacent rooms (and the
-    // connector between them) large enough to actually see.
-    if (!userMoved) _fitToRevealed();
+    // control of pan/zoom. A level change restores the all-level overview so a
+    // newly discovered map section can never remain outside the viewport.
+    if (!userMoved || changedLevel) {
+      userMoved = false;
+      _fitToRevealed();
+    }
   }
 
   // Center the view on a given room (used by the "center on me" button), zooming
@@ -458,6 +483,8 @@ const ZorkMap = (() => {
       for (const id of Object.keys(mapData.rooms)) visited.add(id);
     }
     _render();
+    userMoved = false;
+    _fitToRevealed();
   }
 
   // ── Pan/Zoom ───────────────────────────────────────────────────────────────
@@ -493,7 +520,7 @@ const ZorkMap = (() => {
     const bw = Math.max(maxx - minx, 1), bh = Math.max(maxy - miny, 1);
     const cw = container.clientWidth  || 800;
     const ch = container.clientHeight || 300;
-    scale = Math.max(0.2, Math.min(1.4, Math.min(cw / bw, ch / bh)));
+    scale = Math.max(0.04, Math.min(1.4, Math.min(cw / bw, ch / bh)));
     const cx = (minx + maxx) / 2, cy = (miny + maxy) / 2;
     tx = cw / 2 - cx * scale;
     ty = ch / 2 - cy * scale;
@@ -597,8 +624,8 @@ const ZorkMap = (() => {
   }
 
   function fitView() {
-    _fitToContainer();
-    _applyTransform();
+    userMoved = false;
+    _fitToRevealed();
   }
 
   return { init, update, revealAllRooms, zoom, fitView, centerOnRoom };
