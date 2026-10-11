@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- coiled rope -->
+  <path d="M 20,40 Q 20,15 40,15 Q 60,15 60,40 Q 60,65 40,65 Q 20,65 20,40" fill="none" stroke="#8B4513" stroke-width="7" opacity="0.8"/>
+  <path d="M 27,40 Q 27,22 40,22 Q 53,22 53,40 Q 53,58 40,58 Q 27,58 27,40" fill="none" stroke="#6b3010" stroke-width="4" opacity="0.6"/>
+  <text x="40" y="76" text-anchor="middle" fill="#8B4513" font-family="monospace" font-size="7">rope</text>
+
+</svg>

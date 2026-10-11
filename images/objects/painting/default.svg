@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- frame -->
+  <rect x="10" y="10" width="60" height="56" fill="#8b4513"/>
+  <rect x="14" y="14" width="52" height="48" fill="#1a0808"/>
+  <!-- abstract painting -->
+  <rect x="16" y="16" width="24" height="24" fill="#8b0000" opacity="0.8"/>
+  <rect x="42" y="16" width="22" height="44" fill="#00448b" opacity="0.8"/>
+  <rect x="16" y="42" width="24" height="18" fill="#006600" opacity="0.8"/>
+  <circle cx="28" cy="28" r="8" fill="#ffd700" opacity="0.6"/>
+  <text x="40" y="76" text-anchor="middle" fill="#cd853f" font-family="monospace" font-size="7">painting</text>
+
+</svg>

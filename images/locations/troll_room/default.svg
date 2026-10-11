@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <rect y="240" width="400" height="60" fill="#111"/>
+  <!-- stone walls -->
+  <rect x="0" y="0" width="20" height="300" fill="#111"/>
+  <rect x="380" y="0" width="20" height="300" fill="#111"/>
+  <!-- blood stains -->
+  <ellipse cx="80" cy="150" rx="30" ry="15" fill="#8b0000" opacity="0.4"/>
+  <ellipse cx="320" cy="200" rx="20" ry="10" fill="#8b0000" opacity="0.3"/>
+  <!-- axe scratches -->
+  <line x1="40" y1="60" x2="80" y2="120" stroke="#444" stroke-width="3"/>
+  <line x1="55" y1="60" x2="95" y2="120" stroke="#444" stroke-width="2"/>
+  <line x1="70" y1="60" x2="110" y2="120" stroke="#444" stroke-width="2"/>
+  <!-- troll -->
+  <ellipse cx="200" cy="160" rx="40" ry="50" fill="#3d4a1a"/>
+  <circle cx="200" cy="110" r="28" fill="#4a5520"/>
+  <ellipse cx="188" cy="105" rx="7" ry="9" fill="#8b0000"/>
+  <ellipse cx="212" cy="105" rx="7" ry="9" fill="#8b0000"/>
+  <circle cx="188" cy="106" r="4" fill="#111"/>
+  <circle cx="212" cy="106" r="4" fill="#111"/>
+  <path d="M 185,125 Q 200,135 215,125" stroke="#111" stroke-width="2" fill="none"/>
+  <!-- troll's axe -->
+  <line x1="240" y1="130" x2="280" y2="190" stroke="#888" stroke-width="4"/>
+  <polygon points="275,170 295,150 300,185" fill="#666"/>
+  <text x="200" y="295" text-anchor="middle" fill="#888" font-family="monospace" font-size="13">The Troll Room</text>
+
+</svg>

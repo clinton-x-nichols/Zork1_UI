@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#040c14" rx="8"/>
+  <!-- skull shape -->
+  <ellipse cx="40" cy="38" rx="22" ry="24" fill="#b9f2ff" opacity="0.8"/>
+  <!-- eye sockets -->
+  <ellipse cx="31" cy="34" rx="7" ry="8" fill="#040c14"/>
+  <ellipse cx="49" cy="34" rx="7" ry="8" fill="#040c14"/>
+  <!-- nose -->
+  <polygon points="38,44 42,44 40,49" fill="#040c14"/>
+  <!-- teeth -->
+  <rect x="29" y="52" width="4" height="6" fill="#040c14"/>
+  <rect x="35" y="52" width="4" height="7" fill="#040c14"/>
+  <rect x="41" y="52" width="4" height="7" fill="#040c14"/>
+  <rect x="47" y="52" width="4" height="6" fill="#040c14"/>
+  <!-- glow effect -->
+  <ellipse cx="40" cy="38" rx="22" ry="24" fill="none" stroke="#88ddff" stroke-width="1" opacity="0.4"/>
+  <text x="40" y="76" text-anchor="middle" fill="#b9f2ff" font-family="monospace" font-size="7">skull</text>
+
+</svg>

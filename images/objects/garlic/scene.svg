@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" data-material-version="1"><defs>
+      <linearGradient id="richFill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" /><stop offset="0.2" stop-color="#f2e3ce" />
+        <stop offset="0.68" stop-color="#8d6f69" /><stop offset="1" stop-color="#171318" />
+      </linearGradient>
+      <radialGradient id="richGlow" cx="35%" cy="25%" r="70%">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".8" /><stop offset="1" stop-color="#f2e3ce" stop-opacity="0" />
+      </radialGradient>
+      <filter id="richShadow" x="-30%" y="-30%" width="170%" height="180%">
+        <feDropShadow dx="1.5" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".72" />
+      </filter>
+    </defs>
+    <style>
+      svg &gt; g { filter:url(#richShadow); }
+      g &gt; path:not([fill]), g &gt; rect:not([fill]), g &gt; circle:not([fill]),
+      g &gt; ellipse:not([fill]), g &gt; polygon:not([fill]) { fill:url(#richFill); }
+    </style>
+  <defs><linearGradient id="material0" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#fffff7" /><stop offset="27%" stop-color="#fffff0" /><stop offset="43%" stop-color="#fffff7" /><stop offset="57%" stop-color="#fffff0" /><stop offset="100%" stop-color="#7a7a73" /></linearGradient><linearGradient id="material1" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#f3f3e7" /><stop offset="27%" stop-color="#e8e8d0" /><stop offset="43%" stop-color="#f3f3e7" /><stop offset="57%" stop-color="#e8e8d0" /><stop offset="100%" stop-color="#6f6f64" /></linearGradient><filter id="materialGrain" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" seed="11" result="grain" /><feComposite in="grain" in2="SourceGraphic" operator="in" result="clipped" /><feBlend in="SourceGraphic" in2="clipped" mode="soft-light" /></filter></defs><g filter="url(#materialGrain)"><ellipse cx="40" cy="48" rx="18" ry="20" fill="url(#material0)" />
+  <ellipse cx="40" cy="35" rx="10" ry="14" fill="url(#material0)" />
+  
+  <path d="M 25,50 Q 30,40 40,38 Q 50,40 55,50" fill="none" stroke="#ddd" stroke-width="1.5" />
+  <path d="M 28,55 Q 32,48 40,46 Q 48,48 52,55" fill="none" stroke="#ddd" stroke-width="1" />
+  
+  <line x1="40" y1="30" x2="40" y2="20" stroke="#8b4513" stroke-width="2" />
+  <ellipse cx="30" cy="52" rx="10" ry="8" fill="url(#material1)" opacity="0.5" />
+  <ellipse cx="50" cy="52" rx="10" ry="8" fill="url(#material1)" opacity="0.5" />
+  </g></svg>

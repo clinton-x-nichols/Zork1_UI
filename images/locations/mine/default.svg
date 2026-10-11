@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0808"/>
+  <rect y="240" width="400" height="60" fill="#111"/>
+  <!-- tunnel walls -->
+  <ellipse cx="200" cy="150" rx="170" ry="140" fill="#1a1010"/>
+  <ellipse cx="200" cy="150" rx="150" ry="120" fill="#0a0808"/>
+  <!-- wooden supports -->
+  <rect x="50" y="60" width="12" height="180" fill="#5c3010"/>
+  <rect x="338" y="60" width="12" height="180" fill="#5c3010"/>
+  <rect x="50" y="60" width="300" height="12" fill="#5c3010"/>
+  <!-- coal deposits -->
+  <ellipse cx="80" cy="180" rx="25" ry="15" fill="#111"/>
+  <ellipse cx="320" cy="190" rx="20" ry="12" fill="#111"/>
+  <!-- lantern glow on wall -->
+  <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#d4a017" stop-opacity="0.2"/>
+    <stop offset="100%" stop-color="#d4a017" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="200" cy="150" rx="130" ry="100" fill="url(#lanternGlow)"/>
+  <text x="200" y="295" text-anchor="middle" fill="#7a6a5a" font-family="monospace" font-size="13">Coal Mine</text>
+
+</svg>

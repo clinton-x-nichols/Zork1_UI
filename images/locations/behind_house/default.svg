@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect y="0" width="400" height="140" fill="#0d1b2a"/>
+  <rect y="140" width="400" height="160" fill="#1b3a1b"/>
+  <!-- white house back -->
+  <rect x="20" y="40" width="280" height="130" fill="#e8e8e8" stroke="#bbb" stroke-width="2"/>
+  <polygon points="20,40 160,0 300,40" fill="#d5d5d5" stroke="#bbb" stroke-width="2"/>
+  <!-- kitchen window (the special one) -->
+  <rect x="60" y="65" width="60" height="45" fill="#b8d4e8" stroke="#888" stroke-width="2"/>
+  <line x1="90" y1="65" x2="90" y2="110" stroke="#888" stroke-width="1"/>
+  <line x1="60" y1="87" x2="120" y2="87" stroke="#888" stroke-width="1"/>
+  <rect x="270" y="65" width="0" height="0"/>
+  <!-- back door -->
+  <rect x="200" y="115" width="50" height="55" fill="#8B6914"/>
+  <circle cx="218" cy="143" r="4" fill="#d4a017"/>
+  <!-- forest to east -->
+  <polygon points="330,160 360,100 390,160" fill="#1b4d1b"/>
+  <polygon points="350,170 380,110 410,170" fill="#1f5a1f"/>
+  <text x="200" y="290" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="14">Behind House</text>
+
+</svg>

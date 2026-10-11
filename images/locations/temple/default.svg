@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0d0808"/>
+  <rect y="240" width="400" height="60" fill="#1a0e08"/>
+  <!-- pillars -->
+  <rect x="60" y="30" width="30" height="210" fill="#2a2020"/>
+  <rect x="310" y="30" width="30" height="210" fill="#2a2020"/>
+  <rect x="55" y="25" width="40" height="12" fill="#3a3030"/>
+  <rect x="305" y="25" width="40" height="12" fill="#3a3030"/>
+  <!-- inscription on east wall -->
+  <rect x="300" y="60" width="70" height="120" fill="#1a1010"/>
+  <text x="335" y="80" text-anchor="middle" fill="#4a3020" font-family="serif" font-size="8">ᚠᚢᚦᚨᚱᚲ</text>
+  <text x="335" y="95" text-anchor="middle" fill="#4a3020" font-family="serif" font-size="8">ᚷᚹᚺᚾᛁᛃ</text>
+  <text x="335" y="110" text-anchor="middle" fill="#4a3020" font-family="serif" font-size="8">ᛇᛈᛉᛊᛏᛒ</text>
+  <!-- altar glow -->
+  <ellipse cx="200" cy="200" rx="80" ry="30" fill="#ff8800" opacity="0.08"/>
+  <!-- altar -->
+  <rect x="130" y="180" width="140" height="50" fill="#2a2020"/>
+  <rect x="125" y="175" width="150" height="12" fill="#3a3030"/>
+  <!-- brass bell on altar -->
+  <ellipse cx="200" cy="172" rx="15" ry="10" fill="#d4a017"/>
+  <rect x="194" y="152" width="12" height="20" fill="#d4a017"/>
+  <ellipse cx="200" cy="150" rx="8" ry="5" fill="#b8860b"/>
+  <text x="200" y="295" text-anchor="middle" fill="#aa8866" font-family="monospace" font-size="13">Temple</text>
+
+</svg>

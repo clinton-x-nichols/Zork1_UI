@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <ellipse cx="40" cy="42" rx="22" ry="28" fill="#2d5a1e"/>
+  <!-- jewel decorations -->
+  <circle cx="32" cy="35" r="3" fill="#ffd700"/>
+  <circle cx="48" cy="35" r="3" fill="#b9f2ff"/>
+  <circle cx="40" cy="28" r="3" fill="#50c878"/>
+  <circle cx="34" cy="48" r="2.5" fill="#b9f2ff"/>
+  <circle cx="46" cy="48" r="2.5" fill="#ffd700"/>
+  <ellipse cx="38" cy="36" rx="12" ry="5" fill="#3d7a2e" opacity="0.5"/>
+  <text x="40" y="76" text-anchor="middle" fill="#98fb98" font-family="monospace" font-size="7">egg</text>
+
+</svg>

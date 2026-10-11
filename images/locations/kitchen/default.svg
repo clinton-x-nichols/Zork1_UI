@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#1a1008"/>
+  <rect y="220" width="400" height="80" fill="#3a2a10"/>
+  <!-- table -->
+  <rect x="120" y="170" width="160" height="10" fill="#8B4513"/>
+  <rect x="125" y="180" width="12" height="50" fill="#5c3010"/>
+  <rect x="263" y="180" width="12" height="50" fill="#5c3010"/>
+  <!-- brown sack on table -->
+  <ellipse cx="200" cy="165" rx="25" ry="20" fill="#8b4513"/>
+  <ellipse cx="200" cy="150" rx="12" ry="8" fill="#6b3010"/>
+  <!-- bottle on table -->
+  <rect x="235" y="145" width="14" height="25" rx="3" fill="#88cc88" opacity="0.8"/>
+  <rect x="238" y="140" width="8" height="8" rx="2" fill="#66aa66"/>
+  <!-- kitchen window -->
+  <rect x="280" y="60" width="70" height="55" fill="#b8d4e8" stroke="#888" stroke-width="2"/>
+  <line x1="315" y1="60" x2="315" y2="115" stroke="#888" stroke-width="1"/>
+  <line x1="280" y1="87" x2="350" y2="87" stroke="#888" stroke-width="1"/>
+  <!-- chimney -->
+  <rect x="30" y="100" width="60" height="80" fill="#333"/>
+  <rect x="20" y="90" width="80" height="20" fill="#555"/>
+  <text x="200" y="295" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="13">Kitchen</text>
+
+</svg>

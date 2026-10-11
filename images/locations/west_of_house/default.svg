@@ -1,0 +1,334 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#010008"/>
+    <stop offset="65%" stop-color="#08012a"/>
+    <stop offset="100%" stop-color="#110240"/>
+  </linearGradient>
+  <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#081004"/>
+    <stop offset="100%" stop-color="#030804"/>
+  </linearGradient>
+  <radialGradient id="moonHalo" cx="76%" cy="18%" r="30%">
+    <stop offset="0%" stop-color="#c8bc50" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#08012a" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="winGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#40b800" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#40b800" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="b2"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="b5"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="b8"><feGaussianBlur stdDeviation="8"/></filter>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+<!-- ═══ SKY ═══ -->
+<rect width="600" height="450" fill="url(#sky)"/>
+
+<!-- Moon halo -->
+<circle cx="458" cy="80" r="140" fill="url(#moonHalo)"/>
+
+<!-- Moon body -->
+<circle cx="458" cy="80" r="60" fill="#cbc580" filter="url(#b2)"/>
+<circle cx="458" cy="80" r="57" fill="#d4ce8c"/>
+<!-- Moon dark patches (maria) -->
+<ellipse cx="442" cy="68" rx="16" ry="10" fill="#b0a860" opacity="0.45"/>
+<ellipse cx="468" cy="93" rx="12" ry="8" fill="#b0a860" opacity="0.38"/>
+<ellipse cx="478" cy="70" rx="8" ry="6" fill="#afa858" opacity="0.3"/>
+<ellipse cx="445" cy="88" rx="7" ry="5" fill="#afa858" opacity="0.25"/>
+<!-- Moon surface cracks/veins -->
+<path d="M438 57 Q448 76 443 103" stroke="#9a9045" stroke-width="1.5" fill="none" opacity="0.4"/>
+<path d="M465 50 Q477 82 461 110" stroke="#9a9045" stroke-width="1" fill="none" opacity="0.3"/>
+<path d="M440 68 Q455 72 472 62" stroke="#9a9045" stroke-width="1" fill="none" opacity="0.25"/>
+
+<!-- Tentacled cloud mass left of moon -->
+<path d="M372 36 Q390 22 418 36 Q432 18 453 26 Q448 52 428 60 Q408 52 392 64 Q380 56 372 36Z"
+      fill="#0c041e" opacity="0.92"/>
+<!-- Tentacles curling from cloud -->
+<path d="M390 62 Q380 80 375 104 Q382 90 390 80 Q396 72 390 62Z" fill="#0c041e" opacity="0.88"/>
+<path d="M378 46 Q360 58 348 75 Q362 66 372 62 Q378 58 378 46Z" fill="#0c041e" opacity="0.82"/>
+<path d="M404 64 Q400 86 396 112 Q402 94 408 80 Q412 70 404 64Z" fill="#0c041e" opacity="0.75"/>
+<path d="M384 56 Q368 68 355 88 Q365 76 374 70Z" fill="#0c041e" opacity="0.65"/>
+<!-- Smaller upper cloud -->
+<path d="M495 36 Q510 28 524 38 Q522 54 508 51 Q499 48 495 36Z" fill="#0a0318" opacity="0.75"/>
+<path d="M521 50 Q534 62 539 78 Q531 66 524 58Z" fill="#0a0318" opacity="0.65"/>
+
+<!-- ═══ STARS ═══ -->
+<circle cx="28"  cy="14"  r="1.2" fill="#d0d0f8" opacity="0.82"/>
+<circle cx="72"  cy="36"  r="1.0" fill="#c0c0e8" opacity="0.62"/>
+<circle cx="142" cy="11"  r="1.6" fill="#e0e0ff" opacity="0.74"/>
+<circle cx="192" cy="27"  r="0.8" fill="#d0d0f8" opacity="0.54"/>
+<circle cx="238" cy="8"   r="1.3" fill="#c0c0e8" opacity="0.82"/>
+<circle cx="288" cy="22"  r="0.9" fill="#d0d0f8" opacity="0.63"/>
+<circle cx="318" cy="9"   r="1.4" fill="#e0e0ff" opacity="0.72"/>
+<circle cx="352" cy="17"  r="0.8" fill="#c0c0e8" opacity="0.52"/>
+<circle cx="15"  cy="60"  r="0.9" fill="#d0d0f8" opacity="0.62"/>
+<circle cx="60"  cy="82"  r="1.1" fill="#c0c0e8" opacity="0.72"/>
+<circle cx="108" cy="54"  r="0.8" fill="#d0d0f8" opacity="0.52"/>
+<circle cx="163" cy="46"  r="1.3" fill="#e0e0ff" opacity="0.63"/>
+<circle cx="208" cy="65"  r="0.9" fill="#d0d0f8" opacity="0.72"/>
+<circle cx="268" cy="40"  r="1.0" fill="#c0c0e8" opacity="0.57"/>
+<circle cx="332" cy="51"  r="0.8" fill="#d0d0f8" opacity="0.72"/>
+<circle cx="386" cy="18"  r="1.1" fill="#e0e0ff" opacity="0.52"/>
+<circle cx="538" cy="18"  r="1.0" fill="#d0d0f8" opacity="0.72"/>
+<circle cx="562" cy="44"  r="1.3" fill="#c0c0e8" opacity="0.63"/>
+<circle cx="583" cy="11"  r="0.8" fill="#e0e0ff" opacity="0.82"/>
+<circle cx="508" cy="54"  r="0.9" fill="#d0d0f8" opacity="0.62"/>
+<circle cx="546" cy="74"  r="1.0" fill="#c0c0e8" opacity="0.57"/>
+<circle cx="18"  cy="105" r="0.9" fill="#d0d0f8" opacity="0.45"/>
+<circle cx="88"  cy="118" r="0.7" fill="#c0c0e8" opacity="0.4"/>
+<circle cx="555" cy="110" r="0.8" fill="#d0d0f8" opacity="0.42"/>
+<!-- Disturbing constellation — vaguely wrong shape -->
+<line x1="58" y1="90"  x2="68"  y2="82"  stroke="#4040a0" stroke-width="0.4" opacity="0.35"/>
+<line x1="68" y1="82"  x2="80"  y2="88"  stroke="#4040a0" stroke-width="0.4" opacity="0.35"/>
+<line x1="80" y1="88"  x2="74"  y2="98"  stroke="#4040a0" stroke-width="0.4" opacity="0.35"/>
+<line x1="74" y1="98"  x2="60"  y2="96"  stroke="#4040a0" stroke-width="0.4" opacity="0.35"/>
+<!-- Cosmic void — darkness among stars -->
+<circle cx="163" cy="46" r="18" fill="#000005" filter="url(#b8)" opacity="0.55"/>
+
+<!-- ═══ FAR-BACKGROUND TREES ═══ -->
+<rect x="18"  y="158" width="10" height="78" fill="#090d04" rx="2"/>
+<polygon points="12,168 23,115 34,168" fill="#0b1206"/>
+<rect x="558" y="162" width="9"  height="72" fill="#090d04" rx="2"/>
+<polygon points="553,172 563,122 573,172" fill="#0b1206"/>
+
+<!-- ═══ GROUND ═══ -->
+<rect y="294" width="600" height="156" fill="url(#gnd)"/>
+<!-- Subtle ground texture -->
+<path d="M0,308 Q100,303 200,310 Q300,317 400,306 Q500,299 600,308"
+      stroke="#060c02" stroke-width="7" fill="none" opacity="0.5"/>
+<path d="M0,328 Q150,323 280,330 Q420,337 600,326"
+      stroke="#060c02" stroke-width="5" fill="none" opacity="0.4"/>
+
+<!-- Stone path (to house, slightly crooked) -->
+<ellipse cx="192" cy="382" rx="34" ry="12" fill="#18140e" opacity="0.7"/>
+<ellipse cx="222" cy="362" rx="28" ry="10" fill="#16120c" opacity="0.65"/>
+<ellipse cx="248" cy="343" rx="24" ry="8"  fill="#14100a" opacity="0.6"/>
+<ellipse cx="268" cy="326" rx="19" ry="7"  fill="#120e08" opacity="0.55"/>
+<!-- Sigil scratches on path stones (barely visible) -->
+<path d="M188,380 L198,380 M193,375 L193,385" stroke="#28200e" stroke-width="1" opacity="0.55"/>
+<path d="M218,360 L228,360 M223,355 L223,365" stroke="#28200e" stroke-width="1" opacity="0.48"/>
+<path d="M244,342 L252,342 M248,337 L248,347" stroke="#28200e" stroke-width="1" opacity="0.4"/>
+
+<!-- Fog tendrils at ground level -->
+<ellipse cx="110"  cy="300" rx="155" ry="24" fill="#182200" opacity="0.38" filter="url(#b5)"/>
+<ellipse cx="460"  cy="306" rx="128" ry="20" fill="#182200" opacity="0.32" filter="url(#b5)"/>
+<ellipse cx="290"  cy="312" rx="190" ry="17" fill="#142000" opacity="0.28" filter="url(#b5)"/>
+<ellipse cx="75"   cy="322" rx="108" ry="14" fill="#142000" opacity="0.24" filter="url(#b5)"/>
+<ellipse cx="535"  cy="316" rx="82"  ry="12" fill="#142000" opacity="0.28" filter="url(#b5)"/>
+
+<!-- Strange fungi -->
+<circle cx="62"  cy="308" r="9"  fill="#3a1438" opacity="0.82"/>
+<rect   x="60"  y="308" width="5" height="16" fill="#2a0c20" opacity="0.72"/>
+<circle cx="56"  cy="322" r="5"  fill="#2a1028" opacity="0.72"/>
+<rect   x="54"  y="322" width="3" height="11" fill="#2a0c20" opacity="0.62"/>
+<circle cx="543" cy="313" r="7"  fill="#3a1438" opacity="0.72"/>
+<rect   x="541" y="313" width="4" height="13" fill="#2a0c20" opacity="0.62"/>
+<!-- Small glowing spores -->
+<circle cx="67"  cy="306" r="2"  fill="#80c030" opacity="0.22" filter="url(#b2)"/>
+<circle cx="547" cy="311" r="1.5" fill="#80c030" opacity="0.18" filter="url(#b2)"/>
+
+<!-- Dead grass tufts -->
+<path d="M482,295 Q487,278 490,295" stroke="#1c2406" stroke-width="1.5" fill="none"/>
+<path d="M488,295 Q493,280 496,295" stroke="#182004" stroke-width="1.5" fill="none"/>
+<path d="M494,295 Q500,283 503,295" stroke="#1c2406" stroke-width="1.5" fill="none"/>
+<path d="M92,295 Q97,278 100,295" stroke="#182004" stroke-width="1.5" fill="none"/>
+<path d="M98,295 Q103,282 106,295" stroke="#1c2406" stroke-width="1.5" fill="none"/>
+<path d="M104,295 Q110,280 112,295" stroke="#182004" stroke-width="1.5" fill="none"/>
+
+<!-- ═══ LEFT TREE (large, gnarled, reaching) ═══ -->
+<!-- Shadow first -->
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#050804" stroke-width="28" fill="none" stroke-linecap="round"/>
+<!-- Main trunk -->
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#201508" stroke-width="22" fill="none" stroke-linecap="round"/>
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#2a1c0a" stroke-width="16" fill="none" stroke-linecap="round"/>
+<!-- Left branch 1 (reaching left) -->
+<path d="M52 298 Q22 262 8 220"  stroke="#2a1c0a" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M8 220 Q-2 198 14 180"  stroke="#2a1c0a" stroke-width="6"  fill="none" stroke-linecap="round"/>
+<path d="M8 220 Q-8 225 -12 245" stroke="#2a1c0a" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M14 180 Q8 162 20 148"  stroke="#2a1c0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<!-- Left branch 2 -->
+<path d="M54 268 Q36 238 16 206" stroke="#2a1c0a" stroke-width="9"  fill="none" stroke-linecap="round"/>
+<path d="M16 206 Q5 190 22 174"  stroke="#2a1c0a" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M22 174 Q15 158 28 144" stroke="#2a1c0a" stroke-width="3"  fill="none" stroke-linecap="round"/>
+<!-- Right branch (reaching toward house, ominous) -->
+<path d="M54 292 Q78 256 96 218"  stroke="#2a1c0a" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M96 218 Q106 198 92 178" stroke="#2a1c0a" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+<path d="M96 218 Q114 211 124 193" stroke="#2a1c0a" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M124 193 Q132 178 120 164" stroke="#2a1c0a" stroke-width="3" fill="none" stroke-linecap="round"/>
+<!-- Upper branches -->
+<path d="M50 228 Q32 198 26 166"  stroke="#2a1c0a" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+<path d="M26 166 Q18 148 32 132"  stroke="#2a1c0a" stroke-width="4"   fill="none" stroke-linecap="round"/>
+<path d="M26 166 Q10 160 4 148"   stroke="#2a1c0a" stroke-width="4"   fill="none" stroke-linecap="round"/>
+<path d="M50 228 Q62 208 58 176"  stroke="#2a1c0a" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+<path d="M58 176 Q64 158 52 142"  stroke="#2a1c0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M58 176 Q70 165 75 150"  stroke="#2a1c0a" stroke-width="3"   fill="none" stroke-linecap="round"/>
+<!-- Knothole eye (left tree) -->
+<ellipse cx="52" cy="324" rx="6"  ry="8"   fill="#100a04" stroke="#3c2808" stroke-width="1"/>
+<ellipse cx="52" cy="324" rx="3"  ry="4"   fill="#500808" opacity="0.8"/>
+<ellipse cx="51" cy="323" rx="1.5" ry="2" fill="#ff1010" opacity="0.3" filter="url(#b2)"/>
+<!-- Bark texture lines -->
+<path d="M48 350 Q56 345 50 340" stroke="#1a1006" stroke-width="1" fill="none" opacity="0.5"/>
+<path d="M46 370 Q54 365 50 358" stroke="#1a1006" stroke-width="1" fill="none" opacity="0.45"/>
+<path d="M50 400 Q58 394 52 387" stroke="#1a1006" stroke-width="1" fill="none" opacity="0.4"/>
+
+<!-- ═══ RIGHT TREE (behind/beside house) ═══ -->
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#201508" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#2a1c0a" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M544 298 Q564 262 580 226" stroke="#2a1c0a" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M580 226 Q592 206 578 186" stroke="#2a1c0a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M580 226 Q596 216 600 198" stroke="#2a1c0a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+<path d="M544 268 Q526 242 518 212" stroke="#2a1c0a" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M518 212 Q510 194 524 178" stroke="#2a1c0a" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M547 232 Q538 208 545 182" stroke="#2a1c0a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M545 182 Q540 162 552 148" stroke="#2a1c0a" stroke-width="3" fill="none" stroke-linecap="round"/>
+<!-- Knothole eye (right tree) -->
+<ellipse cx="546" cy="342" rx="5" ry="7"   fill="#100a04" stroke="#3c2808" stroke-width="1"/>
+<ellipse cx="546" cy="342" rx="2.5" ry="3.5" fill="#500808" opacity="0.75"/>
+<ellipse cx="545" cy="341" rx="1.2" ry="1.8" fill="#ff1010" opacity="0.28" filter="url(#b2)"/>
+
+<!-- ═══ THE WHITE HOUSE ═══ -->
+<!-- House shadow/foundation base -->
+<rect x="176" y="272" width="244" height="6" rx="3" fill="#040608" opacity="0.82"/>
+
+<!-- House main body -->
+<rect x="182" y="104" width="232" height="174" fill="#ddd8c4" stroke="#bab6a6" stroke-width="1.5"/>
+<!-- Stone block lines (subtle cyclopean masonry) -->
+<line x1="182" y1="124" x2="414" y2="124" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="144" x2="414" y2="144" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="164" x2="414" y2="164" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="184" x2="414" y2="184" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="204" x2="414" y2="204" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="224" x2="414" y2="224" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="248" x2="414" y2="248" stroke="#c8c4b4" stroke-width="0.6" opacity="0.4"/>
+<!-- Vertical joints offset per row (cyclopean) -->
+<line x1="260" y1="104" x2="260" y2="124" stroke="#c8c4b4" stroke-width="0.5" opacity="0.35"/>
+<line x1="340" y1="104" x2="340" y2="124" stroke="#c8c4b4" stroke-width="0.5" opacity="0.35"/>
+<line x1="220" y1="124" x2="220" y2="144" stroke="#c8c4b4" stroke-width="0.5" opacity="0.3"/>
+<line x1="300" y1="124" x2="300" y2="144" stroke="#c8c4b4" stroke-width="0.5" opacity="0.3"/>
+<line x1="380" y1="124" x2="380" y2="144" stroke="#c8c4b4" stroke-width="0.5" opacity="0.3"/>
+<!-- Slight wrong-geometry shadow on right edge -->
+<rect x="410" y="104" width="4" height="174" fill="#a8a494" opacity="0.5"/>
+
+<!-- Roof (dark, aged shingles) -->
+<polygon points="174,104 298,42 420,104" fill="#382c1e" stroke="#261e10" stroke-width="2"/>
+<!-- Shingle lines on roof -->
+<line x1="218" y1="104" x2="266" y2="65"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="238" y1="104" x2="276" y2="70"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="258" y1="104" x2="286" y2="74"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="278" y1="104" x2="297" y2="77"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="298" y1="104" x2="308" y2="76"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="318" y1="104" x2="318" y2="73"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="338" y1="104" x2="328" y2="71"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="358" y1="104" x2="338" y2="68"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="378" y1="104" x2="348" y2="65"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="398" y1="104" x2="356" y2="63"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+
+<!-- Chimney (slightly leaning) -->
+<polygon points="312,46 315,48 337,46 334,44" fill="#201808" stroke="#181004" stroke-width="1"/>
+<rect x="313" y="48" width="23" height="58" fill="#2a2016" stroke="#201808" stroke-width="1"/>
+<rect x="310" y="44" width="29" height="8"  fill="#1e1606"/>
+
+<!-- Left window (boarded, eldritch glow seeping through) -->
+<rect x="196" y="122" width="76" height="58" fill="#383028" rx="2"/>
+<rect x="198" y="124" width="72" height="54" fill="#261e16" stroke="#36280e" stroke-width="1"/>
+<!-- Window boards (cross-braced) -->
+<line x1="198" y1="124" x2="270" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="270" y1="124" x2="198" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="198" y1="151" x2="270" y2="151" stroke="#4a381a" stroke-width="3.5"/>
+<!-- Eerie green glow bleeding through cracks -->
+<rect x="198" y="124" width="72" height="54" fill="url(#winGlow)"/>
+<line x1="234" y1="124" x2="232" y2="178" stroke="#70d028" stroke-width="1.5" opacity="0.18"/>
+<line x1="246" y1="124" x2="249" y2="178" stroke="#70d028" stroke-width="1"   opacity="0.12"/>
+<!-- Elder sign above left window (hexagram + eye) -->
+<g transform="translate(234,116) scale(0.65)" opacity="0.5">
+  <polygon points="0,-15 8.7,7.5 -8.7,7.5"  fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <polygon points="0,15 8.7,-7.5 -8.7,-7.5" fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#8c7c4e" stroke-width="1.2"/>
+  <circle cx="0" cy="0" r="2" fill="#8c7c4e" opacity="0.4"/>
+</g>
+
+<!-- Right window (boarded, eldritch glow) -->
+<rect x="322" y="122" width="76" height="58" fill="#383028" rx="2"/>
+<rect x="324" y="124" width="72" height="54" fill="#261e16" stroke="#36280e" stroke-width="1"/>
+<line x1="324" y1="124" x2="396" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="396" y1="124" x2="324" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="324" y1="151" x2="396" y2="151" stroke="#4a381a" stroke-width="3.5"/>
+<rect x="324" y="124" width="72" height="54" fill="url(#winGlow)" opacity="0.7"/>
+<line x1="360" y1="124" x2="358" y2="178" stroke="#70d028" stroke-width="1.5" opacity="0.14"/>
+<!-- Elder sign above right window -->
+<g transform="translate(360,116) scale(0.65)" opacity="0.5">
+  <polygon points="0,-15 8.7,7.5 -8.7,7.5"  fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <polygon points="0,15 8.7,-7.5 -8.7,-7.5" fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#8c7c4e" stroke-width="1.2"/>
+  <circle cx="0" cy="0" r="2" fill="#8c7c4e" opacity="0.4"/>
+</g>
+
+<!-- Front door (heavily boarded, dark symbols carved) -->
+<rect x="266" y="196" width="62" height="82" fill="#38220e" stroke="#261408" stroke-width="2"/>
+<!-- Door boards -->
+<line x1="266" y1="196" x2="328" y2="278" stroke="#4c2e10" stroke-width="5.5"/>
+<line x1="328" y1="196" x2="266" y2="278" stroke="#4c2e10" stroke-width="5.5"/>
+<line x1="266" y1="237" x2="328" y2="237" stroke="#4c2e10" stroke-width="4"/>
+<!-- Carved sigils/runes (barely visible) -->
+<path d="M286 220 L297 210 L302 222 L292 228Z" stroke="#608020" stroke-width="0.9" fill="none" opacity="0.28"/>
+<path d="M292 210 L292 228 M286 219 L302 219" stroke="#608020" stroke-width="0.9" opacity="0.22"/>
+<!-- Door knocker -->
+<circle cx="297" cy="238" r="6" fill="none" stroke="#6a5030" stroke-width="1.8"/>
+<rect x="294" y="239" width="6" height="10" fill="#382810" rx="1.5"/>
+
+<!-- Porch steps (mossy, crumbling) -->
+<rect x="248" y="276" width="98" height="7"  fill="#b8b09c" stroke="#a8a08c" stroke-width="0.5" rx="1"/>
+<rect x="254" y="282" width="86" height="6"  fill="#aca494" stroke="#9c9484" stroke-width="0.5" rx="1"/>
+<rect x="260" y="287" width="74" height="5"  fill="#a09088" stroke="#908078" stroke-width="0.5" rx="1"/>
+
+<!-- Ivy crawling on house base -->
+<path d="M182 270 Q202 264 222 268 Q244 263 264 267" stroke="#0c1e08" stroke-width="3" fill="none" opacity="0.55"/>
+<path d="M350 268 Q372 263 393 267 Q410 264 414 270" stroke="#0c1e08" stroke-width="3" fill="none" opacity="0.55"/>
+<circle cx="212" cy="267" r="4.5" fill="#0c1e08" opacity="0.45"/>
+<circle cx="237" cy="265" r="3.5" fill="#0c1e08" opacity="0.38"/>
+<circle cx="258" cy="267" r="3"   fill="#0c1e08" opacity="0.35"/>
+<circle cx="378" cy="266" r="4"   fill="#0c1e08" opacity="0.42"/>
+<circle cx="398" cy="265" r="3"   fill="#0c1e08" opacity="0.36"/>
+
+<!-- ═══ MAILBOX ═══ -->
+<!-- Post (rusted, leaning slightly) -->
+<path d="M114 315 Q116 280 115 240" stroke="#3a2e1e" stroke-width="7" fill="none" stroke-linecap="round"/>
+<!-- Rust marks -->
+<line x1="113" y1="262" x2="118" y2="272" stroke="#5e3a18" stroke-width="1.2" opacity="0.55"/>
+<line x1="115" y1="285" x2="120" y2="292" stroke="#5e3a18" stroke-width="1.2" opacity="0.45"/>
+<!-- Mailbox body (dark, ominous) -->
+<rect x="87" y="221" width="57" height="31" rx="4" fill="#192848" stroke="#3a4e72" stroke-width="1.6"/>
+<!-- Mailbox seam -->
+<line x1="87" y1="237" x2="144" y2="237" stroke="#3a4e72" stroke-width="1"/>
+<!-- Mailbox lid (closed, slightly open — hinting at contents) -->
+<path d="M87 237 Q115.5 229 144 237 L144 221 Q115.5 213 87 221Z"
+      fill="#1e3464" stroke="#3a4e72" stroke-width="1.5"/>
+<!-- Strange runes on mailbox face -->
+<text x="115" y="232" text-anchor="middle" font-size="7" fill="#304878" opacity="0.55"
+      font-family="monospace" letter-spacing="2">III</text>
+<!-- Flag (down, rusted) -->
+<rect x="143" y="229" width="3" height="17" fill="#3a2e1e"/>
+<rect x="143" y="229" width="9" height="6"  fill="#6a1810" rx="1"/>
+<!-- Creeping vines on post -->
+<path d="M114 290 Q110 283 115 275 Q119 266 114 260" stroke="#162804" stroke-width="2.2" fill="none" opacity="0.62"/>
+<path d="M117 300 Q122 291 118 282"                  stroke="#162804" stroke-width="1.8" fill="none" opacity="0.5"/>
+<circle cx="111" cy="271" r="2.5" fill="#162804" opacity="0.4"/>
+<circle cx="116" cy="260" r="2"   fill="#162804" opacity="0.35"/>
+
+<!-- ═══ ATMOSPHERE ═══ -->
+<!-- Additional fog overlays at various distances -->
+<ellipse cx="298" cy="296" rx="298" ry="22" fill="#182200" opacity="0.28" filter="url(#b5)"/>
+<ellipse cx="150" cy="308" rx="220" ry="18" fill="#141e00" opacity="0.22" filter="url(#b5)"/>
+
+<!-- Moonlight shimmer on ground -->
+<ellipse cx="458" cy="430" rx="120" ry="14" fill="#c8bc50" opacity="0.04" filter="url(#b8)"/>
+
+<!-- Label (faded, monospace, barely legible) -->
+<text x="300" y="440" text-anchor="middle" fill="#4e4436" font-family="monospace"
+      font-size="11" letter-spacing="3" opacity="0.65">WEST OF HOUSE</text>
+</svg>

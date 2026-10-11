@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- gold coins pile -->
+  <ellipse cx="35" cy="55" rx="20" ry="10" fill="#d4a017" opacity="0.8"/>
+  <ellipse cx="45" cy="50" rx="20" ry="10" fill="#d4a017" opacity="0.9"/>
+  <ellipse cx="40" cy="45" rx="20" ry="10" fill="#ffd700"/>
+  <!-- zorkmid symbol -->
+  <text x="40" y="49" text-anchor="middle" fill="#8b6914" font-family="serif" font-size="12">Z</text>
+  <text x="40" y="76" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="7">zorkmid</text>
+
+</svg>

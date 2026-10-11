@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" data-material-version="1"><defs>
+      <linearGradient id="richFill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" /><stop offset="0.2" stop-color="#a7652b" />
+        <stop offset="0.68" stop-color="#4b2414" /><stop offset="1" stop-color="#171318" />
+      </linearGradient>
+      <radialGradient id="richGlow" cx="35%" cy="25%" r="70%">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".8" /><stop offset="1" stop-color="#a7652b" stop-opacity="0" />
+      </radialGradient>
+      <filter id="richShadow" x="-30%" y="-30%" width="170%" height="180%">
+        <feDropShadow dx="1.5" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".72" />
+      </filter>
+    </defs>
+    <style>
+      svg &gt; g { filter:url(#richShadow); }
+      g &gt; path:not([fill]), g &gt; rect:not([fill]), g &gt; circle:not([fill]),
+      g &gt; ellipse:not([fill]), g &gt; polygon:not([fill]) { fill:url(#richFill); }
+    </style>
+  <defs><linearGradient id="material0" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#c39e84" /><stop offset="27%" stop-color="#8b4513" /><stop offset="43%" stop-color="#c39e84" /><stop offset="57%" stop-color="#8b4513" /><stop offset="100%" stop-color="#432109" /></linearGradient><linearGradient id="material1" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#b29383" /><stop offset="27%" stop-color="#6b3010" /><stop offset="43%" stop-color="#b29383" /><stop offset="57%" stop-color="#6b3010" /><stop offset="100%" stop-color="#331708" /></linearGradient><filter id="materialGrain" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" seed="11" result="grain" /><feComposite in="grain" in2="SourceGraphic" operator="in" result="clipped" /><feBlend in="SourceGraphic" in2="clipped" mode="soft-light" /></filter></defs><g filter="url(#materialGrain)"><ellipse cx="40" cy="52" rx="24" ry="20" fill="url(#material0)" />
+  
+  <path d="M 25,40 Q 35,28 40,30 Q 45,28 55,40" fill="url(#material1)" />
+  <line x1="30" y1="37" x2="50" y2="37" stroke="#5c2a08" stroke-width="2" />
+  
+  <line x1="28" y1="50" x2="28" y2="65" stroke="#6b3010" stroke-width="1" opacity="0.5" />
+  <line x1="36" y1="48" x2="36" y2="68" stroke="#6b3010" stroke-width="1" opacity="0.5" />
+  <line x1="44" y1="48" x2="44" y2="68" stroke="#6b3010" stroke-width="1" opacity="0.5" />
+  <line x1="52" y1="50" x2="52" y2="65" stroke="#6b3010" stroke-width="1" opacity="0.5" />
+  </g></svg>

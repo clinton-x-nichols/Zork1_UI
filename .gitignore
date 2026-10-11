@@ -1,0 +1,18 @@
+# Local browser and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Local game saves and temporary output
+*.qzl
+*.sav
+*.tmp
+
+# Local development servers
+node_modules/
+.venv/
+__pycache__/

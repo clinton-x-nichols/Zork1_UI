@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZORK I — The Great Underground Empire</title>
+  <link rel="stylesheet" href="static/css/style.css?v=4"/>
+  <link rel="stylesheet" href="static/css/scene.css?v=6"/>
+</head>
+<body>
+<div id="app">
+
+  <!-- ① Title Bar ─────────────────────────────────────────────── -->
+  <header id="titlebar">
+    <h1>⚔ ZORK I</h1>
+    <div class="toolbar-actions">
+      <button id="btn-save"   title="Save game to a file">💾 SAVE</button>
+      <button id="btn-resume" title="Resume from a save file">📂 RESUME</button>
+      <button id="btn-restart" title="Restart game">↺ RESTART</button>
+    </div>
+    <input id="resume-file" type="file" accept=".qzl,.sav,.dat,application/octet-stream" hidden/>
+  </header>
+
+  <!-- Main content area -->
+  <div id="main-area">
+
+    <!-- ②③ Top Row: Location Image + Map ────────────────────────── -->
+    <div id="images-row">
+
+      <!-- ② Location Image ──────────────────────────────────────── -->
+      <section id="location-panel">
+        <div id="location-header">
+          <span>⌖ LOCATION</span>
+          <span id="loc-name"></span>
+        </div>
+        <div id="location-img-container">
+          <div id="scene-view"><div id="location-fallback">Loading…</div></div>
+          <nav id="scene-compass" aria-label="Move around the game">
+            <button type="button" class="vertical-direction up" data-direction="up" aria-label="Go up" title="Go up">U</button>
+            <div class="compass-rose">
+              <button type="button" data-direction="northwest" aria-label="Go northwest" title="Go northwest">NW</button>
+              <button type="button" data-direction="north" aria-label="Go north" title="Go north">N</button>
+              <button type="button" data-direction="northeast" aria-label="Go northeast" title="Go northeast">NE</button>
+              <button type="button" data-direction="west" aria-label="Go west" title="Go west">W</button>
+              <span aria-hidden="true">✦</span>
+              <button type="button" data-direction="east" aria-label="Go east" title="Go east">E</button>
+              <button type="button" data-direction="southwest" aria-label="Go southwest" title="Go southwest">SW</button>
+              <button type="button" data-direction="south" aria-label="Go south" title="Go south">S</button>
+              <button type="button" data-direction="southeast" aria-label="Go southeast" title="Go southeast">SE</button>
+            </div>
+            <button type="button" class="vertical-direction down" data-direction="down" aria-label="Go down" title="Go down">D</button>
+          </nav>
+          <div id="scene-warning" role="status" hidden></div>
+          <div id="object-actions" role="dialog" aria-label="Object actions" hidden></div>
+        </div>
+      </section>
+
+      <!-- Resizer: location | map -->
+      <div class="resizer resizer-col" id="resizer-loc-map" title="Drag to resize"></div>
+
+      <!-- ③ Map Panel ────────────────────────────────────────────── -->
+      <section id="map-panel">
+        <div id="map-header">
+          <div class="map-zoom-controls">
+            <button id="zoom-in"  title="Zoom in">+</button>
+            <button id="zoom-out" title="Zoom out">−</button>
+            <button id="zoom-fit" title="Reset view">⊡</button>
+            <button id="map-center" title="Center on my location">⊙</button>
+          </div>
+          <span class="hint">Drag to pan · Scroll to zoom · Click visited rooms to teleport</span>
+        </div>
+        <div id="map-container"></div>
+      </section>
+
+    </div><!-- /images-row -->
+
+    <!-- Resizer: images-row | bottom-row -->
+    <div class="resizer resizer-row" id="resizer-rows" title="Drag to resize"></div>
+
+    <!-- ④⑤ Bottom Row: CLI Terminal + Inventory ─────────────────── -->
+    <div id="bottom-row">
+
+      <!-- ④ CLI Panel ─────────────────────────────────────────────── -->
+      <section id="cli-panel">
+        <div id="cli-header">
+          <span id="cli-loc-name">West of House</span>
+          <div class="cli-header-tools">
+            <label for="cli-font-size">Text size</label>
+            <select id="cli-font-size" aria-label="Terminal text size">
+              <option value="12">Small</option>
+              <option value="13" selected>Default</option>
+              <option value="16">Medium</option>
+              <option value="19">Large</option>
+              <option value="22">Extra large</option>
+            </select>
+            <span id="cli-status">READY</span>
+          </div>
+        </div>
+        <div id="cli-output" aria-live="polite"></div>
+        <div id="cli-input-row">
+          <span id="cli-prompt">&gt;</span>
+          <input id="cli-input" type="text" autocomplete="off"
+                 spellcheck="false" autofocus
+                 placeholder="type a command…" aria-label="Command input"/>
+        </div>
+      </section>
+
+      <!-- Resizer: cli | inventory -->
+      <div class="resizer resizer-col" id="resizer-cli-inv" title="Drag to resize"></div>
+
+      <!-- ⑤ Inventory ──────────────────────────────────────────────── -->
+      <section id="inventory-panel">
+        <div id="inventory-header">⚗ INVENTORY</div>
+        <div id="inventory-grid"></div>
+        <div id="inventory-empty">You are empty-handed.</div>
+      </section>
+
+    </div><!-- /bottom-row -->
+
+  </div><!-- /main-area -->
+
+</div><!-- /app -->
+
+<!-- Game-over overlay -->
+<div id="game-over-overlay">
+  <h2>GAME OVER</h2>
+  <p>Your adventure has ended.</p>
+  <button id="btn-play-again">PLAY AGAIN</button>
+</div>
+
+<script src="vendor/zvm.js"></script>
+<script src="game-data.js"></script>
+<script src="browser-game.js"></script>
+<script src="browser-bridge.js"></script>
+<script src="static/js/map.js?v=2"></script>
+<script src="static/js/scene.js?v=6"></script>
+<script src="static/js/app.js?v=4"></script>
+</body>
+</html>

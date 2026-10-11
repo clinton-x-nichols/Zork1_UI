@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0a0a"/>
+  
+  <rect width="80" height="80" fill="#0a0a0a" rx="8"/>
+  <ellipse cx="40" cy="52" rx="28" ry="22" fill="#3a4020"/>
+  <circle cx="40" cy="30" r="20" fill="#4a5020"/>
+  <circle cx="40" cy="27" r="10" fill="#8b0000"/>
+  <circle cx="40" cy="27" r="6" fill="#cc0000"/>
+  <circle cx="40" cy="27" r="3" fill="#111"/>
+  <circle cx="42" cy="25" r="1" fill="white" opacity="0.4"/>
+  <path d="M 30,42 Q 40,48 50,42" stroke="#111" stroke-width="2" fill="none"/>
+  <text x="40" y="76" text-anchor="middle" fill="#666" font-family="monospace" font-size="7">cyclops</text>
+
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0a08" rx="8"/>
+  <!-- cage -->
+  <ellipse cx="40" cy="40" rx="22" ry="26" fill="none" stroke="#d4a017" stroke-width="2"/>
+  <line x1="40" y1="14" x2="40" y2="66" stroke="#d4a017" stroke-width="1.5"/>
+  <line x1="18" y1="40" x2="62" y2="40" stroke="#d4a017" stroke-width="1.5"/>
+  <line x1="22" y1="27" x2="58" y2="27" stroke="#d4a017" stroke-width="1"/>
+  <line x1="22" y1="53" x2="58" y2="53" stroke="#d4a017" stroke-width="1"/>
+  <!-- hook -->
+  <line x1="40" y1="14" x2="40" y2="10" stroke="#d4a017" stroke-width="2"/>
+  <!-- canary inside -->
+  <ellipse cx="40" cy="42" rx="10" ry="8" fill="#ffd700"/>
+  <circle cx="40" cy="36" r="7" fill="#ffd700"/>
+  <circle cx="37" cy="34" r="2" fill="#111"/>
+  <polygon points="43,37 47,37 43,40" fill="#ff8800"/>
+  <text x="40" y="76" text-anchor="middle" fill="#ffd700" font-family="monospace" font-size="7">canary</text>
+
+</svg>

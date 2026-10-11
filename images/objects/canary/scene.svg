@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" data-material-version="1"><defs>
+      <linearGradient id="richFill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff" /><stop offset="0.2" stop-color="#fff06a" />
+        <stop offset="0.68" stop-color="#d07b19" /><stop offset="1" stop-color="#171318" />
+      </linearGradient>
+      <radialGradient id="richGlow" cx="35%" cy="25%" r="70%">
+        <stop offset="0" stop-color="#ffffff" stop-opacity=".8" /><stop offset="1" stop-color="#fff06a" stop-opacity="0" />
+      </radialGradient>
+      <filter id="richShadow" x="-30%" y="-30%" width="170%" height="180%">
+        <feDropShadow dx="1.5" dy="3" stdDeviation="2" flood-color="#000" flood-opacity=".72" />
+      </filter>
+    </defs>
+    <style>
+      svg &gt; g { filter:url(#richShadow); }
+      g &gt; path:not([fill]), g &gt; rect:not([fill]), g &gt; circle:not([fill]),
+      g &gt; ellipse:not([fill]), g &gt; polygon:not([fill]) { fill:url(#richFill); }
+    </style>
+  <defs><linearGradient id="material0" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#ffea7a" /><stop offset="27%" stop-color="#ffd700" /><stop offset="43%" stop-color="#ffea7a" /><stop offset="57%" stop-color="#ffd700" /><stop offset="100%" stop-color="#7a6700" /></linearGradient><linearGradient id="material1" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#838383" /><stop offset="27%" stop-color="#111" /><stop offset="43%" stop-color="#838383" /><stop offset="57%" stop-color="#111" /><stop offset="100%" stop-color="#080808" /></linearGradient><linearGradient id="material2" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0%" stop-color="#ffc17a" /><stop offset="27%" stop-color="#ff8800" /><stop offset="43%" stop-color="#ffc17a" /><stop offset="57%" stop-color="#ff8800" /><stop offset="100%" stop-color="#7a4100" /></linearGradient><filter id="materialGrain" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" seed="11" result="grain" /><feComposite in="grain" in2="SourceGraphic" operator="in" result="clipped" /><feBlend in="SourceGraphic" in2="clipped" mode="soft-light" /></filter></defs><g filter="url(#materialGrain)"><ellipse cx="40" cy="40" rx="22" ry="26" fill="none" stroke="#d4a017" stroke-width="2" />
+  <line x1="40" y1="14" x2="40" y2="66" stroke="#d4a017" stroke-width="1.5" />
+  <line x1="18" y1="40" x2="62" y2="40" stroke="#d4a017" stroke-width="1.5" />
+  <line x1="22" y1="27" x2="58" y2="27" stroke="#d4a017" stroke-width="1" />
+  <line x1="22" y1="53" x2="58" y2="53" stroke="#d4a017" stroke-width="1" />
+  
+  <line x1="40" y1="14" x2="40" y2="10" stroke="#d4a017" stroke-width="2" />
+  
+  <ellipse cx="40" cy="42" rx="10" ry="8" fill="url(#material0)" />
+  <circle cx="40" cy="36" r="7" fill="url(#material0)" />
+  <circle cx="37" cy="34" r="2" fill="url(#material1)" />
+  <polygon points="43,37 47,37 43,40" fill="url(#material2)" />
+  </g></svg>

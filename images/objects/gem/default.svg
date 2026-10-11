@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <polygon points="40,10 60,30 55,55 40,62 25,55 20,30" fill="#50c878"/>
+  <polygon points="40,10 60,30 40,35" fill="#7aee98" opacity="0.6"/>
+  <polygon points="20,30 40,35 25,55" fill="#30a858" opacity="0.7"/>
+  <polygon points="60,30 55,55 40,35" fill="#30a858" opacity="0.5"/>
+  <line x1="40" y1="10" x2="40" y2="35" stroke="#aaffaa" stroke-width="1" opacity="0.5"/>
+  <text x="40" y="76" text-anchor="middle" fill="#50c878" font-family="monospace" font-size="7">gem</text>
+
+</svg>

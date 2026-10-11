@@ -1,0 +1,323 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+<defs>
+  <!-- Deep void sky — almost no light -->
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#000004"/>
+    <stop offset="60%"  stop-color="#050012"/>
+    <stop offset="100%" stop-color="#0c001e"/>
+  </linearGradient>
+  <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#060802"/>
+    <stop offset="100%" stop-color="#020402"/>
+  </linearGradient>
+  <!-- Alien moon — sickly, wrong color -->
+  <radialGradient id="moonHalo" cx="74%" cy="15%" r="28%">
+    <stop offset="0%"   stop-color="#906018" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#050012" stop-opacity="0"/>
+  </radialGradient>
+  <!-- Eldritch eye in sky center -->
+  <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#ff4000" stop-opacity="0.6"/>
+    <stop offset="40%"  stop-color="#c02000" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#600000" stop-opacity="0"/>
+  </radialGradient>
+  <!-- Ritual circle glow on ground -->
+  <radialGradient id="ritualGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stop-color="#60a000" stop-opacity="0.4"/>
+    <stop offset="60%"  stop-color="#408000" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#204000" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="b2"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="b4"><feGaussianBlur stdDeviation="4"/></filter>
+  <filter id="b6"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="b10"><feGaussianBlur stdDeviation="10"/></filter>
+  <filter id="b16"><feGaussianBlur stdDeviation="16"/></filter>
+  <filter id="b24"><feGaussianBlur stdDeviation="24"/></filter>
+</defs>
+
+<!-- ═══ VOID SKY ═══ -->
+<rect width="600" height="450" fill="url(#sky)"/>
+
+<!-- Tentacular entity in the sky (barely outlined) — a vast silhouette -->
+<!-- Main body mass (oval, dark purple, slightly darker than sky) -->
+<ellipse cx="300" cy="95" rx="145" ry="65" fill="#090016" opacity="0.7" filter="url(#b16)"/>
+<ellipse cx="300" cy="100" rx="120" ry="52" fill="#0c0020" opacity="0.65" filter="url(#b10)"/>
+<!-- Tentacles emanating in all directions -->
+<path d="M200 85 Q170 60 140 30 Q120 10 90 -10" stroke="#0a0018" stroke-width="28" fill="none" stroke-linecap="round" opacity="0.7" filter="url(#b6)"/>
+<path d="M200 85 Q165 70 130 55 Q95 42 55 48" stroke="#0a0018" stroke-width="20" fill="none" stroke-linecap="round" opacity="0.65" filter="url(#b4)"/>
+<path d="M190 110 Q155 108 120 120 Q80 134 45 160" stroke="#0a0018" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.6" filter="url(#b4)"/>
+<path d="M400 85 Q428 60 458 28 Q478 8 508 -12" stroke="#0a0018" stroke-width="26" fill="none" stroke-linecap="round" opacity="0.68" filter="url(#b6)"/>
+<path d="M400 85 Q435 70 468 58 Q504 44 545 50" stroke="#0a0018" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.63" filter="url(#b4)"/>
+<path d="M410 110 Q445 110 478 122 Q518 136 554 162" stroke="#0a0018" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.58" filter="url(#b4)"/>
+<path d="M300 52 Q295 28 305 4 Q312 -14 305 -28" stroke="#0a0018" stroke-width="22" fill="none" stroke-linecap="round" opacity="0.65" filter="url(#b6)"/>
+<path d="M260 62 Q235 40 225 12 Q218 -8 230 -24" stroke="#0a0018" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.58" filter="url(#b4)"/>
+<path d="M340 62 Q365 40 374 12 Q380 -8 370 -24" stroke="#0a0018" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.58" filter="url(#b4)"/>
+<!-- Entity body surface detail — darker striations -->
+<ellipse cx="295" cy="98" rx="80" ry="38" fill="#080015" opacity="0.45" filter="url(#b4)"/>
+<ellipse cx="308" cy="106" rx="50" ry="28" fill="#060010" opacity="0.4" filter="url(#b4)"/>
+<!-- Central eye of the entity — red-orange, vertical pupil -->
+<ellipse cx="300" cy="96" rx="32" ry="20" fill="#200008" opacity="0.6"/>
+<ellipse cx="300" cy="96" rx="24" ry="15" fill="url(#eyeGlow)"/>
+<ellipse cx="300" cy="96" rx="16" ry="10" fill="#e01800" opacity="0.55" filter="url(#b2)"/>
+<ellipse cx="300" cy="96" rx="8"  ry="14" fill="#ff2000" opacity="0.7"/>
+<ellipse cx="300" cy="96" rx="4"  ry="8"  fill="#200000" opacity="0.9"/>
+<ellipse cx="300" cy="94" rx="1.5" ry="3" fill="#ff6040" opacity="0.5" filter="url(#b2)"/>
+<!-- Eye glow halo -->
+<ellipse cx="300" cy="96" rx="55" ry="38" fill="#800000" opacity="0.08" filter="url(#b10)"/>
+
+<!-- Moon (partially obscured by entity tentacle, shifted amber-wrong) -->
+<circle cx="444" cy="72" r="100" fill="url(#moonHalo)"/>
+<circle cx="444" cy="72" r="52"  fill="#b09040" filter="url(#b2)"/>
+<circle cx="444" cy="72" r="49"  fill="#c8a848"/>
+<ellipse cx="430" cy="62" rx="14" ry="9"  fill="#a08830" opacity="0.45"/>
+<ellipse cx="455" cy="82" rx="10" ry="7"  fill="#a08830" opacity="0.38"/>
+<path d="M424 56 Q434 72 430 96" stroke="#887030" stroke-width="1.5" fill="none" opacity="0.4"/>
+<!-- Tentacle crossing in front of moon (entity part) -->
+<path d="M380 35 Q410 55 430 88 Q450 118 460 150" stroke="#0a0018" stroke-width="30" fill="none" stroke-linecap="round" opacity="0.72" filter="url(#b6)"/>
+<path d="M380 35 Q410 55 430 88 Q450 118 460 150" stroke="#0c0020" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.65"/>
+
+<!-- A few sickly wrong-colored stars (not white — green-yellow, off) -->
+<circle cx="60"  cy="25"  r="1.4" fill="#a0c040" opacity="0.7"/>
+<circle cx="128" cy="14"  r="1.0" fill="#80c060" opacity="0.6"/>
+<circle cx="178" cy="35"  r="0.8" fill="#a0d040" opacity="0.5"/>
+<circle cx="512" cy="20"  r="1.2" fill="#a0c040" opacity="0.65"/>
+<circle cx="574" cy="10"  r="0.9" fill="#80c060" opacity="0.55"/>
+<circle cx="540" cy="38"  r="1.1" fill="#a0d040" opacity="0.6"/>
+<circle cx="22"  cy="60"  r="0.8" fill="#a0c040" opacity="0.5"/>
+<circle cx="580" cy="58"  r="0.9" fill="#80c060" opacity="0.48"/>
+<!-- Wrong constellation — Eye of Azathoth -->
+<line x1="58"  cy="28" x1="58"  y1="28" x2="68"  y2="20" stroke="#608030" stroke-width="0.5" opacity="0.4"/>
+<line x2="78"  y2="26" x1="68"  y1="20" stroke="#608030" stroke-width="0.5" opacity="0.4"/>
+<line x1="78"  y1="26" x2="72"  y2="36" stroke="#608030" stroke-width="0.5" opacity="0.4"/>
+<line x1="72"  y1="36" x2="60"  y2="33" stroke="#608030" stroke-width="0.5" opacity="0.4"/>
+<line x1="60"  y1="33" x2="58"  y2="28" stroke="#608030" stroke-width="0.5" opacity="0.4"/>
+
+<!-- GROUND — darker, more dead -->
+<rect y="294" width="600" height="156" fill="url(#gnd)"/>
+<path d="M0,312 Q100,308 200,314 Q300,320 400,310 Q500,303 600,312"
+      stroke="#040802" stroke-width="6" fill="none" opacity="0.6"/>
+
+<!-- Ritual circle burned into ground (glowing sigils) -->
+<ellipse cx="200" cy="350" rx="68" ry="22" fill="url(#ritualGlow)"/>
+<ellipse cx="200" cy="350" rx="62" ry="18" fill="none" stroke="#608018" stroke-width="1.5" opacity="0.45" stroke-dasharray="4,3"/>
+<ellipse cx="200" cy="350" rx="44" ry="13" fill="none" stroke="#608018" stroke-width="1"   opacity="0.35" stroke-dasharray="3,4"/>
+<!-- Sigil lines within circle -->
+<path d="M165 350 L200 335 L235 350 L220 368 L180 368Z" fill="none" stroke="#70a020" stroke-width="1.2" opacity="0.4"/>
+<path d="M200 335 L200 368 M165 350 L235 350" stroke="#70a020" stroke-width="0.8" opacity="0.3"/>
+<!-- Scattered sigil stones -->
+<rect x="102" y="338" width="12" height="8" rx="2" fill="#181408" opacity="0.7"/>
+<rect x="286" y="342" width="10" height="7" rx="2" fill="#181408" opacity="0.65"/>
+<rect x="162" y="376" width="9"  height="6" rx="2" fill="#181408" opacity="0.6"/>
+<!-- Runes visible on stones -->
+<text x="108" y="345" font-size="6" fill="#506010" opacity="0.5" font-family="monospace">⊕</text>
+<text x="291" y="348" font-size="6" fill="#506010" opacity="0.45" font-family="monospace">∴</text>
+
+<!-- Fog (sinister, rising from ground) -->
+<ellipse cx="110"  cy="300" rx="155" ry="24" fill="#0c0c08" opacity="0.5" filter="url(#b6)"/>
+<ellipse cx="460"  cy="306" rx="128" ry="20" fill="#0c0c08" opacity="0.45" filter="url(#b6)"/>
+<ellipse cx="290"  cy="312" rx="190" ry="17" fill="#080c06" opacity="0.42" filter="url(#b6)"/>
+<!-- Eerie green fog wisps rising from ritual circle -->
+<ellipse cx="200" cy="345" rx="80" ry="30" fill="#304808" opacity="0.3" filter="url(#b10)"/>
+<ellipse cx="200" cy="320" rx="40" ry="40" fill="#284008" opacity="0.18" filter="url(#b10)"/>
+
+<!-- Strange oversized fungi — now dominant, spreading -->
+<circle cx="62"  cy="304" r="14" fill="#3c0c40" opacity="0.88"/>
+<rect   x="58"  y="304" width="8"  height="22" fill="#280820" opacity="0.8"/>
+<circle cx="50"  cy="316" r="8"   fill="#2e0830" opacity="0.75"/>
+<rect   x="47"  y="316" width="6"  height="16" fill="#280820" opacity="0.68"/>
+<circle cx="74"  cy="318" r="7"   fill="#301030" opacity="0.72"/>
+<rect   x="72"  y="318" width="5"  height="14" fill="#280820" opacity="0.65"/>
+<circle cx="535" cy="310" r="12"  fill="#3c0c40" opacity="0.82"/>
+<rect   x="531" y="310" width="7"  height="20" fill="#280820" opacity="0.75"/>
+<circle cx="548" cy="320" r="7"   fill="#2e0830" opacity="0.7"/>
+<rect   x="546" y="320" width="5"  height="13" fill="#280820" opacity="0.62"/>
+<!-- Glowing spores drifting upward -->
+<circle cx="60"  cy="296" r="2.5" fill="#b030e0" opacity="0.3"  filter="url(#b2)"/>
+<circle cx="68"  cy="286" r="1.8" fill="#b030e0" opacity="0.22" filter="url(#b2)"/>
+<circle cx="55"  cy="278" r="1.5" fill="#b030e0" opacity="0.18" filter="url(#b2)"/>
+<circle cx="540" cy="302" r="2.2" fill="#b030e0" opacity="0.28" filter="url(#b2)"/>
+<circle cx="548" cy="292" r="1.6" fill="#b030e0" opacity="0.2"  filter="url(#b2)"/>
+
+<!-- LEFT TREE (gnarled, now with multiple eyes in bark, branches reaching like arms) -->
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#050302" stroke-width="28" fill="none" stroke-linecap="round"/>
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#180c04" stroke-width="22" fill="none" stroke-linecap="round"/>
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#221208" stroke-width="16" fill="none" stroke-linecap="round"/>
+<!-- Branches reaching like reaching arms -->
+<path d="M52 298 Q22 262 8 220"   stroke="#221208" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M8 220 Q-2 198 14 180"   stroke="#221208" stroke-width="6"  fill="none" stroke-linecap="round"/>
+<path d="M8 220 Q-8 225 -12 248"  stroke="#221208" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M14 180 Q6 160 18 145"   stroke="#221208" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M54 268 Q36 238 16 206"  stroke="#221208" stroke-width="9"  fill="none" stroke-linecap="round"/>
+<path d="M16 206 Q4 188 20 172"   stroke="#221208" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M54 292 Q78 256 96 218"  stroke="#221208" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M96 218 Q108 198 92 178" stroke="#221208" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+<path d="M96 218 Q115 210 126 192" stroke="#221208" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M50 228 Q32 198 26 166"  stroke="#221208" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+<path d="M26 166 Q18 146 32 130"  stroke="#221208" stroke-width="4"  fill="none" stroke-linecap="round"/>
+<path d="M50 228 Q62 208 58 176"  stroke="#221208" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+<!-- MULTIPLE KNOTHOLE EYES (tree is watching) -->
+<ellipse cx="52" cy="328" rx="6.5" ry="9"   fill="#0c0602" stroke="#400c08" stroke-width="1.5"/>
+<ellipse cx="52" cy="328" rx="3.5" ry="5"   fill="#780808"/>
+<ellipse cx="51" cy="327" rx="1.8" ry="2.5" fill="#ff2000" opacity="0.5" filter="url(#b2)"/>
+<ellipse cx="50" cy="294" rx="4.5" ry="6.5" fill="#0c0602" stroke="#400c08" stroke-width="1.2"/>
+<ellipse cx="50" cy="294" rx="2.5" ry="3.5" fill="#700808"/>
+<ellipse cx="50" cy="293" rx="1.2" ry="1.8" fill="#ff2000" opacity="0.38" filter="url(#b2)"/>
+<ellipse cx="55" cy="380" rx="3.5" ry="5"   fill="#0c0602" stroke="#400c08" stroke-width="1"/>
+<ellipse cx="55" cy="380" rx="1.8" ry="2.8" fill="#680808"/>
+<ellipse cx="55" cy="379" rx="0.9" ry="1.4" fill="#ff1800" opacity="0.3" filter="url(#b2)"/>
+<!-- A face in the bark — barely perceptible -->
+<path d="M44 255 Q50 250 56 255" stroke="#2a1008" stroke-width="2" fill="none" opacity="0.4"/>
+<path d="M46 262 Q50 258 54 262" stroke="#2a1008" stroke-width="1.5" fill="none" opacity="0.3"/>
+
+<!-- RIGHT TREE (also watching) -->
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#180c04" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#221208" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M544 298 Q564 262 580 226" stroke="#221208" stroke-width="8"  fill="none" stroke-linecap="round"/>
+<path d="M580 226 Q592 206 578 186" stroke="#221208" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<path d="M580 226 Q596 216 600 198" stroke="#221208" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+<path d="M544 268 Q526 242 518 212" stroke="#221208" stroke-width="7"  fill="none" stroke-linecap="round"/>
+<path d="M547 232 Q538 208 545 182" stroke="#221208" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<!-- Eye clusters on right tree -->
+<ellipse cx="546" cy="344" rx="5.5" ry="8"   fill="#0c0602" stroke="#400c08" stroke-width="1.5"/>
+<ellipse cx="546" cy="344" rx="3"   ry="4.5" fill="#780808"/>
+<ellipse cx="545" cy="343" rx="1.5" ry="2.2" fill="#ff2000" opacity="0.45" filter="url(#b2)"/>
+<ellipse cx="548" cy="300" rx="4"   ry="5.5" fill="#0c0602" stroke="#400c08" stroke-width="1.2"/>
+<ellipse cx="548" cy="300" rx="2"   ry="3"   fill="#700808"/>
+<ellipse cx="548" cy="299" rx="1"   ry="1.5" fill="#ff1800" opacity="0.35" filter="url(#b2)"/>
+
+<!-- HOUSE (now clearly wrong — geometry subtly broken, more sinister) -->
+<rect x="176" y="274" width="244" height="6" rx="3" fill="#020404" opacity="0.9"/>
+<!-- House body — slightly darker, more foreboding -->
+<rect x="182" y="104" width="232" height="174" fill="#cec8b4" stroke="#a8a498" stroke-width="1.5"/>
+<!-- Non-Euclidean: subtle skew suggests the house is slightly wrong -->
+<polygon points="182,104 182,278 244,278 244,104" fill="#d0cab6" opacity="0.3"/>
+<!-- Masonry -->
+<line x1="182" y1="124" x2="414" y2="124" stroke="#b0ac9c" stroke-width="0.6" opacity="0.4"/>
+<line x1="182" y1="144" x2="414" y2="144" stroke="#b0ac9c" stroke-width="0.6" opacity="0.4"/>
+<line x1="182" y1="164" x2="414" y2="164" stroke="#b0ac9c" stroke-width="0.6" opacity="0.4"/>
+<line x1="182" y1="184" x2="414" y2="184" stroke="#b0ac9c" stroke-width="0.6" opacity="0.4"/>
+<line x1="182" y1="224" x2="414" y2="224" stroke="#b0ac9c" stroke-width="0.6" opacity="0.35"/>
+<!-- Shadow suggesting impossible geometry -->
+<rect x="406" y="104" width="8" height="174" fill="#888480" opacity="0.35"/>
+<rect x="182" y="270" width="232" height="8"  fill="#888480" opacity="0.3"/>
+
+<!-- Roof -->
+<polygon points="172,104 298,40 420,104" fill="#2c2014" stroke="#1c1408" stroke-width="2"/>
+<line x1="238" y1="104" x2="276" y2="68"  stroke="#1c1408" stroke-width="0.9" opacity="0.5"/>
+<line x1="278" y1="104" x2="297" y2="75"  stroke="#1c1408" stroke-width="0.9" opacity="0.5"/>
+<line x1="318" y1="104" x2="318" y2="71"  stroke="#1c1408" stroke-width="0.9" opacity="0.5"/>
+<line x1="358" y1="104" x2="338" y2="66"  stroke="#1c1408" stroke-width="0.9" opacity="0.5"/>
+<line x1="398" y1="104" x2="356" y2="61"  stroke="#1c1408" stroke-width="0.9" opacity="0.5"/>
+
+<!-- Chimney with dark smoke merging into entity above -->
+<rect x="313" y="48" width="23" height="58" fill="#201a10" stroke="#181208" stroke-width="1"/>
+<rect x="310" y="44" width="29" height="8"  fill="#181004"/>
+<!-- Smoke tendrils connecting to entity -->
+<path d="M322 44 Q318 25 312 8 Q308 -4 300 -10"  stroke="#080018" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.45" filter="url(#b4)"/>
+<path d="M330 44 Q336 22 330 4 Q325 -8 315 -15" stroke="#080018" stroke-width="8"  fill="none" stroke-linecap="round" opacity="0.38" filter="url(#b4)"/>
+
+<!-- Windows — much stronger eldritch glow, almost pulsing with color -->
+<rect x="196" y="122" width="76" height="58" fill="#301818" rx="2"/>
+<rect x="198" y="124" width="72" height="54" fill="#220e08" stroke="#381008" stroke-width="1"/>
+<line x1="198" y1="124" x2="270" y2="178" stroke="#5c1808" stroke-width="4.5"/>
+<line x1="270" y1="124" x2="198" y2="178" stroke="#5c1808" stroke-width="4.5"/>
+<line x1="198" y1="151" x2="270" y2="151" stroke="#5c1808" stroke-width="3.5"/>
+<!-- Orange-red eldritch glow (entity watching through house) -->
+<rect x="198" y="124" width="72" height="54" fill="#e82000" opacity="0.12"/>
+<ellipse cx="234" cy="151" rx="44" ry="32" fill="#c01800" opacity="0.1" filter="url(#b6)"/>
+<line x1="234" y1="124" x2="232" y2="178" stroke="#ff2800" stroke-width="2"   opacity="0.2"/>
+<line x1="246" y1="124" x2="249" y2="178" stroke="#ff2800" stroke-width="1.5" opacity="0.14"/>
+<!-- LARGE ELDER SIGN above left window (glowing, disturbing) -->
+<g transform="translate(234,114) scale(0.9)" opacity="0.65">
+  <polygon points="0,-18 10.4,9 -10.4,9"  fill="none" stroke="#c0a030" stroke-width="2"/>
+  <polygon points="0,18 10.4,-9 -10.4,-9" fill="none" stroke="#c0a030" stroke-width="2"/>
+  <circle cx="0" cy="0" r="6.5" fill="none" stroke="#c0a030" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="3"   fill="#c0a030" opacity="0.4"/>
+  <circle cx="0" cy="0" r="3"   fill="#e0c040" opacity="0.25" filter="url(#b2)"/>
+</g>
+
+<rect x="322" y="122" width="76" height="58" fill="#301818" rx="2"/>
+<rect x="324" y="124" width="72" height="54" fill="#220e08" stroke="#381008" stroke-width="1"/>
+<line x1="324" y1="124" x2="396" y2="178" stroke="#5c1808" stroke-width="4.5"/>
+<line x1="396" y1="124" x2="324" y2="178" stroke="#5c1808" stroke-width="4.5"/>
+<line x1="324" y1="151" x2="396" y2="151" stroke="#5c1808" stroke-width="3.5"/>
+<rect x="324" y="124" width="72" height="54" fill="#e82000" opacity="0.1"/>
+<ellipse cx="360" cy="151" rx="44" ry="32" fill="#c01800" opacity="0.09" filter="url(#b6)"/>
+<g transform="translate(360,114) scale(0.9)" opacity="0.65">
+  <polygon points="0,-18 10.4,9 -10.4,9"  fill="none" stroke="#c0a030" stroke-width="2"/>
+  <polygon points="0,18 10.4,-9 -10.4,-9" fill="none" stroke="#c0a030" stroke-width="2"/>
+  <circle cx="0" cy="0" r="6.5" fill="none" stroke="#c0a030" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="3"   fill="#c0a030" opacity="0.4"/>
+</g>
+
+<!-- Door — now with visible symbols, pulsing -->
+<rect x="266" y="196" width="62" height="82" fill="#2a1006" stroke="#1c0a04" stroke-width="2"/>
+<line x1="266" y1="196" x2="328" y2="278" stroke="#4a2008" stroke-width="5.5"/>
+<line x1="328" y1="196" x2="266" y2="278" stroke="#4a2008" stroke-width="5.5"/>
+<line x1="266" y1="237" x2="328" y2="237" stroke="#4a2008" stroke-width="4"/>
+<!-- Glowing carved symbols on door -->
+<path d="M284 218 L297 206 L304 220 L293 230Z" stroke="#a0c030" stroke-width="1.2" fill="none" opacity="0.5"/>
+<path d="M293 206 L293 230 M284 218 L304 218"  stroke="#a0c030" stroke-width="1.2" opacity="0.42"/>
+<circle cx="297" cy="218" r="3" fill="#a0c030" opacity="0.25" filter="url(#b2)"/>
+<!-- Large elder sign on door center -->
+<g transform="translate(297,250) scale(0.7)" opacity="0.55">
+  <polygon points="0,-16 9.2,8 -9.2,8"  fill="none" stroke="#90c028" stroke-width="1.8"/>
+  <polygon points="0,16 9.2,-8 -9.2,-8" fill="none" stroke="#90c028" stroke-width="1.8"/>
+  <circle cx="0" cy="0" r="5.5" fill="none" stroke="#90c028" stroke-width="1.4"/>
+  <circle cx="0" cy="0" r="2.2" fill="#90c028" opacity="0.4" filter="url(#b2)"/>
+</g>
+
+<!-- Porch (crumbling) -->
+<rect x="248" y="276" width="98" height="7"  fill="#a8a090" stroke="#989080" stroke-width="0.5" rx="1" opacity="0.8"/>
+<rect x="254" y="282" width="86" height="6"  fill="#9c9488" stroke="#8c8478" stroke-width="0.5" rx="1" opacity="0.8"/>
+<!-- Cracks in porch -->
+<path d="M262 278 Q266 280 270 276" stroke="#706860" stroke-width="1" fill="none" opacity="0.5"/>
+<path d="M290 280 Q296 283 300 279" stroke="#706860" stroke-width="1" fill="none" opacity="0.45"/>
+
+<!-- More ivy (darker, reaching) -->
+<path d="M182 270 Q202 263 222 268 Q244 262 264 266" stroke="#0a1a06" stroke-width="3.5" fill="none" opacity="0.65"/>
+<path d="M350 266 Q372 261 393 265 Q410 262 414 270" stroke="#0a1a06" stroke-width="3.5" fill="none" opacity="0.65"/>
+<!-- Vines reaching upward on house wall -->
+<path d="M186 268 Q184 248 188 228" stroke="#0a1806" stroke-width="2" fill="none" opacity="0.4"/>
+<path d="M196 266 Q192 240 196 216" stroke="#0a1806" stroke-width="1.5" fill="none" opacity="0.35"/>
+<path d="M410 268 Q413 246 410 224" stroke="#0a1806" stroke-width="2" fill="none" opacity="0.38"/>
+
+<!-- MAILBOX — now clearly eldritch, dark energy visible -->
+<path d="M114 315 Q116 280 115 240" stroke="#3a2818" stroke-width="7" fill="none" stroke-linecap="round"/>
+<rect x="87" y="221" width="57" height="31" rx="4" fill="#0e1c34" stroke="#283a5c" stroke-width="1.6"/>
+<path d="M87 237 Q115.5 229 144 237 L144 221 Q115.5 213 87 221Z" fill="#102040" stroke="#283a5c" stroke-width="1.5"/>
+<!-- Pulsing dark energy from mailbox — it knows you're here -->
+<ellipse cx="115" cy="232" rx="50" ry="32" fill="#000820" opacity="0.25" filter="url(#b10)"/>
+<!-- Strange markings all over mailbox, now clearly visible -->
+<g transform="translate(115,228)" opacity="0.6">
+  <line x1="-15" y1="0"  x2="15"  y2="0"  stroke="#3060a0" stroke-width="1"/>
+  <line x1="0"   y1="-8" x2="0"   y2="8"   stroke="#3060a0" stroke-width="1"/>
+  <line x1="-10" y1="-6" x2="10"  y2="6"   stroke="#3060a0" stroke-width="0.8"/>
+  <line x1="10"  y1="-6" x2="-10" y2="6"   stroke="#3060a0" stroke-width="0.8"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#3060a0" stroke-width="0.8"/>
+</g>
+<rect x="143" y="229" width="3"  height="17" fill="#2a2018"/>
+<rect x="143" y="229" width="9"  height="6"  fill="#5a1008" rx="1"/>
+<path d="M114 290 Q110 283 115 275 Q119 266 114 260" stroke="#102008" stroke-width="2.2" fill="none" opacity="0.7"/>
+<path d="M117 300 Q122 291 118 282" stroke="#102008" stroke-width="1.8" fill="none" opacity="0.55"/>
+
+<!-- Ground ritual glow reflected on tree bases -->
+<ellipse cx="52" cy="420" rx="28" ry="12" fill="#406000" opacity="0.12" filter="url(#b6)"/>
+<ellipse cx="548" cy="425" rx="22" ry="10" fill="#406000" opacity="0.1"  filter="url(#b6)"/>
+
+<!-- Fog (darker, more sinister) -->
+<ellipse cx="298" cy="296" rx="298" ry="22" fill="#080c04" opacity="0.5" filter="url(#b6)"/>
+<ellipse cx="150" cy="310" rx="220" ry="18" fill="#080c04" opacity="0.42" filter="url(#b6)"/>
+
+<!-- Something in the dark at right edge — barely visible figure -->
+<ellipse cx="578" cy="295" rx="14" ry="34" fill="#050308" opacity="0.55" filter="url(#b4)"/>
+<ellipse cx="578" cy="272" rx="10" ry="14" fill="#050308" opacity="0.45" filter="url(#b4)"/>
+<!-- Its eye -->
+<circle cx="574" cy="268" r="4" fill="#ff2800" opacity="0.22" filter="url(#b2)"/>
+
+<!-- Labels -->
+<text x="300" y="440" text-anchor="middle" fill="#5a3c28" font-family="monospace"
+      font-size="11" letter-spacing="3" opacity="0.7">WEST OF HOUSE</text>
+<text x="300" y="430" text-anchor="middle" fill="#804820" font-family="monospace"
+      font-size="9" letter-spacing="1" opacity="0.55">— it has noticed you —</text>
+</svg>

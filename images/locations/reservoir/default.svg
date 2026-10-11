@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#050f1a"/>
+  <!-- water surface -->
+  <rect y="40" width="400" height="200" fill="#0a3050"/>
+  <!-- ripple animation approximation -->
+  <ellipse cx="200" cy="140" rx="180" ry="30" fill="none" stroke="#1a5a8a" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="200" cy="140" rx="120" ry="20" fill="none" stroke="#1a5a8a" stroke-width="1" opacity="0.4"/>
+  <ellipse cx="200" cy="140" rx="60" ry="10" fill="none" stroke="#1a5a8a" stroke-width="1" opacity="0.3"/>
+  <!-- reflections -->
+  <line x1="100" y1="60" x2="105" y2="240" stroke="#1a7aaa" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="60" x2="295" y2="240" stroke="#1a7aaa" stroke-width="1" opacity="0.2"/>
+  <!-- cave ceiling -->
+  <path d="M 0,40 Q 50,10 100,40 Q 150,10 200,40 Q 250,10 300,40 Q 350,10 400,40" fill="#0a0808" stroke="#222" stroke-width="2"/>
+  <!-- stalactites -->
+  <polygon points="70,10 76,40 82,10" fill="#1a1010"/>
+  <polygon points="140,10 146,35 152,10" fill="#1a1010"/>
+  <polygon points="250,10 256,42 262,10" fill="#1a1010"/>
+  <polygon points="330,10 336,38 342,10" fill="#1a1010"/>
+  <!-- cave bottom shore -->
+  <rect y="240" width="400" height="60" fill="#1a1210"/>
+  <text x="200" y="295" text-anchor="middle" fill="#5599bb" font-family="monospace" font-size="13">Reservoir</text>
+
+</svg>

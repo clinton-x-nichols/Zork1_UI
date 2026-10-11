@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <rect y="240" width="400" height="60" fill="#111"/>
+  <!-- cyclops - massive figure -->
+  <ellipse cx="200" cy="200" rx="65" ry="80" fill="#3a4020"/>
+  <circle cx="200" cy="120" r="50" fill="#4a5020"/>
+  <!-- single eye -->
+  <circle cx="200" cy="115" r="22" fill="#8b0000"/>
+  <circle cx="200" cy="115" r="14" fill="#cc0000"/>
+  <circle cx="200" cy="115" r="7" fill="#111"/>
+  <circle cx="204" cy="111" r="2" fill="white" opacity="0.4"/>
+  <!-- nose, mouth -->
+  <ellipse cx="200" cy="135" rx="10" ry="6" fill="#3a4010"/>
+  <path d="M 182,150 Q 200,162 218,150" stroke="#111" stroke-width="3" fill="none"/>
+  <!-- arms -->
+  <ellipse cx="140" cy="200" rx="25" ry="50" fill="#3a4020" transform="rotate(-20,140,200)"/>
+  <ellipse cx="260" cy="200" rx="25" ry="50" fill="#3a4020" transform="rotate(20,260,200)"/>
+  <!-- club -->
+  <rect x="270" y="160" width="12" height="80" fill="#5c3010" transform="rotate(15,276,200)"/>
+  <rect x="265" y="158" width="22" height="18" rx="4" fill="#4a2a08" transform="rotate(15,276,200)"/>
+  <text x="200" y="295" text-anchor="middle" fill="#888" font-family="monospace" font-size="13">Cyclops Room</text>
+
+</svg>

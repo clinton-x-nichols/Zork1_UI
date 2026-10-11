@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#080808"/>
+  <!-- maze passages (rough sketch) -->
+  <!-- horizontal corridors -->
+  <rect x="30" y="80" width="340" height="30" fill="#1a1010" rx="4"/>
+  <rect x="30" y="190" width="200" height="30" fill="#1a1010" rx="4"/>
+  <!-- vertical corridors -->
+  <rect x="80" y="80" width="30" height="140" fill="#1a1010" rx="4"/>
+  <rect x="220" y="80" width="30" height="80" fill="#1a1010" rx="4"/>
+  <rect x="320" y="80" width="30" height="60" fill="#1a1010" rx="4"/>
+  <!-- skeleton on floor -->
+  <ellipse cx="300" cy="240" rx="18" ry="13" fill="#ccc" opacity="0.5"/>
+  <line x1="300" y1="253" x2="300" y2="280" stroke="#ccc" stroke-width="3" opacity="0.5"/>
+  <line x1="280" y1="263" x2="320" y2="263" stroke="#ccc" stroke-width="2" opacity="0.5"/>
+  <line x1="290" y1="280" x2="285" y2="295" stroke="#ccc" stroke-width="2" opacity="0.5"/>
+  <line x1="310" y1="280" x2="315" y2="295" stroke="#ccc" stroke-width="2" opacity="0.5"/>
+  <!-- dim torch flicker -->
+  <ellipse cx="200" cy="150" rx="60" ry="40" fill="#ff6600" opacity="0.05"/>
+  <text x="200" y="295" text-anchor="middle" fill="#555" font-family="monospace" font-size="13">Maze of twisty passages</text>
+
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0808"/>
+  <rect y="240" width="400" height="60" fill="#111"/>
+  <!-- dome above -->
+  <ellipse cx="200" cy="80" rx="160" ry="80" fill="#1a1010" stroke="#333" stroke-width="3"/>
+  <!-- torch mounted high -->
+  <rect x="193" y="40" width="14" height="40" fill="#8b4513"/>
+  <ellipse cx="200" cy="38" rx="10" ry="14" fill="#ff6600"/>
+  <ellipse cx="200" cy="35" rx="7" ry="10" fill="#ffcc00"/>
+  <ellipse cx="200" cy="32" rx="4" ry="7" fill="#fff"/>
+  <!-- torch light -->
+  <radialGradient id="torchLight" cx="50%" cy="15%" r="60%">
+    <stop offset="0%" stop-color="#ffcc00" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#ff6600" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="200" cy="150" rx="180" ry="150" fill="url(#torchLight)"/>
+  <!-- rope hanging from dome -->
+  <line x1="200" y1="80" x2="200" y2="180" stroke="#8b4513" stroke-width="4"/>
+  <ellipse cx="200" cy="185" rx="12" ry="6" fill="#8b4513"/>
+  <text x="200" y="295" text-anchor="middle" fill="#cc8844" font-family="monospace" font-size="13">Torch Room</text>
+
+</svg>

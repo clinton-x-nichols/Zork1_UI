@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0808"/>
+  <rect y="240" width="400" height="60" fill="#111"/>
+  <!-- granite east wall -->
+  <rect x="340" y="0" width="60" height="240" fill="#2a2020"/>
+  <!-- scattered treasure bags -->
+  <ellipse cx="100" cy="220" rx="35" ry="20" fill="#5c3010" opacity="0.6"/>
+  <ellipse cx="160" cy="230" rx="28" ry="16" fill="#4a2a08" opacity="0.5"/>
+  <ellipse cx="280" cy="215" rx="30" ry="18" fill="#5c3010" opacity="0.5"/>
+  <!-- gold glints -->
+  <circle cx="120" cy="200" r="3" fill="#ffd700" opacity="0.8"/>
+  <circle cx="200" cy="210" r="4" fill="#ffd700" opacity="0.7"/>
+  <circle cx="250" cy="195" r="3" fill="#ffd700" opacity="0.9"/>
+  <circle cx="90" cy="195" r="2" fill="#ffd700" opacity="0.6"/>
+  <!-- staircase down -->
+  <rect x="30" y="200" width="70" height="10" fill="#444"/>
+  <rect x="35" y="215" width="60" height="10" fill="#3a3a3a"/>
+  <rect x="40" y="230" width="50" height="10" fill="#333"/>
+  <!-- dim glow -->
+  <radialGradient id="treasureGlow">
+    <stop offset="0%" stop-color="#ffd700" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="200" cy="200" rx="180" ry="100" fill="url(#treasureGlow)"/>
+  <text x="200" y="295" text-anchor="middle" fill="#d4a017" font-family="monospace" font-size="13">Treasure Room</text>
+
+</svg>

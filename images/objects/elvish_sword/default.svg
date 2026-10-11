@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0a14" rx="8"/>
+  <!-- blade -->
+  <polygon points="40,8 36,60 40,68 44,60" fill="#8888cc"/>
+  <!-- crossguard -->
+  <rect x="18" y="55" width="44" height="7" rx="3" fill="#5555aa"/>
+  <!-- handle -->
+  <rect x="35" y="62" width="10" height="16" fill="#4a3a0a"/>
+  <!-- pommel -->
+  <ellipse cx="40" cy="78" rx="7" ry="4" fill="#8888cc"/>
+  <!-- rune glow -->
+  <line x1="40" y1="15" x2="40" y2="50" stroke="#aaaaff" stroke-width="1" opacity="0.5"/>
+  <text x="40" y="8" text-anchor="middle" fill="#8888cc" font-family="monospace" font-size="6">&#9829;</text>
+  <text x="40" y="76" text-anchor="middle" fill="#8888cc" font-family="monospace" font-size="6">sword</text>
+
+</svg>

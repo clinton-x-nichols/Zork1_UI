@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- handle -->
+  <rect x="34" y="45" width="12" height="26" fill="#5c3010"/>
+  <!-- flame -->
+  <ellipse cx="40" cy="38" rx="10" ry="14" fill="#ff6600"/>
+  <ellipse cx="40" cy="34" rx="7" ry="10" fill="#ffcc00"/>
+  <ellipse cx="40" cy="30" rx="4" ry="7" fill="#fff" opacity="0.8"/>
+  <!-- glow -->
+  <ellipse cx="40" cy="38" rx="18" ry="18" fill="#ff8800" opacity="0.15"/>
+  <text x="40" y="76" text-anchor="middle" fill="#ff8800" font-family="monospace" font-size="7">torch</text>
+
+</svg>

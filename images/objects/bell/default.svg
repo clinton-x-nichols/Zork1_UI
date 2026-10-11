@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- bell shape -->
+  <path d="M 30,50 Q 28,32 40,28 Q 52,32 50,50 Z" fill="#d4a017"/>
+  <rect x="29" y="48" width="22" height="5" rx="2" fill="#b8860b"/>
+  <!-- handle at top -->
+  <line x1="40" y1="28" x2="40" y2="18" stroke="#d4a017" stroke-width="3"/>
+  <rect x="35" y="14" width="10" height="5" rx="3" fill="#b8860b"/>
+  <!-- clapper -->
+  <line x1="40" y1="44" x2="40" y2="52" stroke="#888" stroke-width="2"/>
+  <circle cx="40" cy="53" r="3" fill="#888"/>
+  <text x="40" y="76" text-anchor="middle" fill="#d4a017" font-family="monospace" font-size="7">bell</text>
+
+</svg>

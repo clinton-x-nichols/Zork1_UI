@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect width="400" height="300" fill="#0a0d1a"/>
+  <!-- water behind dam -->
+  <rect y="0" width="400" height="130" fill="#0a2a4a"/>
+  <!-- ripples -->
+  <ellipse cx="200" cy="80" rx="150" ry="20" fill="none" stroke="#1a5a8a" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="200" cy="100" rx="100" ry="12" fill="none" stroke="#1a5a8a" stroke-width="1" opacity="0.4"/>
+  <!-- dam wall -->
+  <rect x="0" y="110" width="400" height="80" fill="#555566"/>
+  <!-- concrete texture -->
+  <line x1="0" y1="130" x2="400" y2="130" stroke="#444" stroke-width="2"/>
+  <line x1="0" y1="150" x2="400" y2="150" stroke="#444" stroke-width="2"/>
+  <line x1="0" y1="170" x2="400" y2="170" stroke="#444" stroke-width="2"/>
+  <line x1="80" y1="110" x2="80" y2="190" stroke="#444" stroke-width="1"/>
+  <line x1="160" y1="110" x2="160" y2="190" stroke="#444" stroke-width="1"/>
+  <line x1="240" y1="110" x2="240" y2="190" stroke="#444" stroke-width="1"/>
+  <line x1="320" y1="110" x2="320" y2="190" stroke="#444" stroke-width="1"/>
+  <!-- sign -->
+  <rect x="150" y="115" width="100" height="30" fill="#333"/>
+  <text x="200" y="135" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="9">FLOOD CONTROL DAM #3</text>
+  <!-- bottom water -->
+  <rect y="190" width="400" height="110" fill="#0d3355"/>
+  <ellipse cx="200" cy="210" rx="150" ry="15" fill="none" stroke="#1a5a8a" stroke-width="1" opacity="0.4"/>
+  <text x="200" y="295" text-anchor="middle" fill="#7799bb" font-family="monospace" font-size="13">Flood Control Dam #3</text>
+
+</svg>

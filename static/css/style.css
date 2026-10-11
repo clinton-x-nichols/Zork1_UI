@@ -1,0 +1,599 @@
+/* ── Zork UI — Stylesheet ─────────────────────────────────────────── */
+
+:root {
+  --bg:          #0a0a0f;
+  --panel-bg:    #0f0f1a;
+  --panel-border:#1e2a3a;
+  --text:        #c8d8c0;
+  --text-dim:    #6a7a6a;
+  --accent:      #4a8a4a;
+  --accent2:     #d4a017;
+  --term-green:  #33ff33;
+  --term-amber:  #ffb000;
+  --scrollbar:   #1e2a3a;
+  --radius:      6px;
+  --glow:        0 0 12px rgba(74,138,74,.25);
+  --shadow:      0 4px 16px rgba(0,0,0,.6);
+  --resizer-w:   5px;
+  --cli-font-size: 13px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+/* ── Top-level layout ────────────────────────────────────────────────── */
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 4px;
+  gap: 4px;
+}
+
+/* ── Title Bar ───────────────────────────────────────────────────────── */
+
+#titlebar {
+  flex: 0 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #0f1a0f 0%, #1a0f0f 50%, #0f0f1a 100%);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 0 16px;
+  box-shadow: var(--shadow);
+}
+
+#titlebar h1 {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--accent2);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--accent2);
+}
+
+#titlebar .meta {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+#titlebar .meta span { color: var(--term-amber); }
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#btn-save, #btn-resume, #btn-restart {
+  background: none;
+  border: 1px solid #4a2a0a;
+  color: var(--text-dim);
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  transition: all .2s;
+}
+#btn-save:hover, #btn-resume:hover, #btn-restart:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+  box-shadow: 0 0 6px rgba(212,160,23,.3);
+}
+
+/* ── Main Area ───────────────────────────────────────────────────────── */
+
+#main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: 0;
+}
+
+/* ── Top Row: Location Image + Map ──────────────────────────────────── */
+
+#images-row {
+  flex: 0 0 58%;
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+  gap: 0;
+}
+
+/* ── Location Image Panel ────────────────────────────────────────────── */
+
+#location-panel {
+  flex: 0 0 60%;
+  min-width: 80px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+#location-header {
+  padding: 5px 10px;
+  background: #0a1018;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 11px;
+  color: #5588aa;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+#location-img-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+#location-img-container svg,
+#location-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#location-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Scene item overlays ─────────────────────────────────────────────── */
+
+.scene-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 6px 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+}
+
+.scene-item {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(212,160,23,0.5);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.6);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scene-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Map Panel ───────────────────────────────────────────────────────── */
+
+#map-panel {
+  flex: 1;
+  min-width: 80px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+#map-header {
+  padding: 5px 12px;
+  background: #0a100a;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+#map-header .hint {
+  color: var(--text-dim);
+  font-size: 10px;
+  margin-left: auto;
+}
+
+#map-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  background:
+    radial-gradient(ellipse at center, rgba(40, 34, 22, 0.55) 0%, rgba(8, 8, 6, 0.9) 75%),
+    #070705;
+}
+#map-container.grabbing { cursor: grabbing; }
+
+#map-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  user-select: none;
+}
+
+/* ── Bottom Row: CLI + Inventory ─────────────────────────────────────── */
+
+#bottom-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 100px;
+  gap: 0;
+}
+
+/* ── CLI Panel ───────────────────────────────────────────────────────── */
+
+#cli-panel {
+  flex: 0 0 75%;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow), var(--glow);
+}
+
+#cli-header {
+  padding: 6px 12px;
+  background: #0d1a0d;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.cli-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cli-header-tools label { color: var(--text-dim); }
+
+#cli-font-size {
+  border: 1px solid #315131;
+  border-radius: 3px;
+  background: #091109;
+  color: var(--term-green);
+  font: inherit;
+  font-size: 11px;
+  padding: 1px 4px;
+}
+
+#cli-output {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+  line-height: 1.6;
+  color: var(--term-green);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: var(--cli-font-size);
+}
+
+#cli-input-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--panel-border);
+  padding: 6px 12px;
+  background: #0d1a0d;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#cli-prompt {
+  color: var(--accent);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+#cli-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--term-amber);
+  font-family: inherit;
+  font-size: var(--cli-font-size);
+  caret-color: var(--term-amber);
+}
+
+#cli-input::placeholder { color: #333; }
+
+/* ── Inventory Panel ─────────────────────────────────────────────────── */
+
+#inventory-panel {
+  flex: 1;
+  min-width: 80px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+#inventory-header {
+  padding: 5px 10px;
+  background: #100d1a;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+#inventory-grid {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  overflow-y: auto;
+  align-content: flex-start;
+}
+
+.inv-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  cursor: default;
+  transition: transform .15s;
+}
+.inv-item:hover { transform: scale(1.08); }
+
+.inv-item img {
+  width: 52px;
+  height: 52px;
+  border: 1px solid #1e2a3a;
+  border-radius: 4px;
+  background: #070710;
+}
+
+.inv-item .inv-label {
+  font-size: 9px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 2px;
+  max-width: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#inventory-empty {
+  padding: 10px;
+  color: var(--text-dim);
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* ── Drag Resizers ───────────────────────────────────────────────────── */
+
+.resizer {
+  flex-shrink: 0;
+  background: var(--panel-border);
+  border-radius: 3px;
+  transition: background .15s;
+  position: relative;
+}
+
+.resizer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.resizer-col {
+  width: var(--resizer-w);
+  cursor: col-resize;
+  margin: 0 2px;
+}
+
+.resizer-col::after {
+  left: -4px;
+  right: -4px;
+}
+
+.resizer-row {
+  height: var(--resizer-w);
+  cursor: row-resize;
+  margin: 2px 0;
+}
+
+.resizer-row::after {
+  top: -4px;
+  bottom: -4px;
+}
+
+.resizer:hover,
+.resizer.active {
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(74,138,74,.4);
+}
+
+body.resizing-col,
+body.resizing-col * { cursor: col-resize !important; }
+body.resizing-row,
+body.resizing-row * { cursor: row-resize !important; }
+body.resizing-col,
+body.resizing-row   { user-select: none !important; }
+
+/* ── Map Node Styles ─────────────────────────────────────────────────── */
+
+/* Monochrome pen-and-ink map, consistent with the scene artwork. */
+.map-room {
+  cursor: pointer;
+  transition: opacity .2s;
+}
+.map-room.hidden { opacity: 0; pointer-events: none; }
+
+.room-tile {
+  opacity: 0.92;
+}
+.map-room.current .room-tile { opacity: 1; }
+.map-room:not(.visited):not(.current) .room-tile { display: none; }
+
+.room-bg {
+  fill: rgba(228, 219, 194, 0.05);
+  stroke: #9c8f6e;
+  stroke-width: 1.1;
+}
+.room-label {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 8.5px;
+  letter-spacing: 0.2px;
+  fill: #b9ad8c;
+}
+
+.map-room.visited .room-bg { fill: rgba(228, 219, 194, 0.07); stroke: #b6a884; }
+.map-room.visited .room-label { fill: #ccc0a0; }
+
+.map-room.current .room-bg { fill: rgba(212, 160, 23, 0.16); stroke: #e3c469; stroke-width: 1.6; }
+.map-room.current .room-label { fill: #f2e6c2; font-weight: 600; }
+.room-marker { fill: #e3c469; }
+
+.map-room:not(.visited):not(.current) .room-bg { fill: rgba(228, 219, 194, 0.02); stroke: #4f4a3a; opacity: 0.35; }
+.map-room:not(.visited):not(.current) .room-label { fill: #5a5443; }
+
+.map-room.visited:hover .room-bg { fill: rgba(228, 219, 194, 0.13); stroke: #d9cba0; }
+
+/* TEMP review aid: red border marking locked scenes on the map. */
+.locked-border { stroke: #e0322f; stroke-width: 3; opacity: 0.95; }
+
+/* On-page connectors (from a saved map-builder layout) — number-free chevrons
+   marking an exit that leads to another scene. Scene numbers stay in the builder. */
+.map-connector { fill: #c98a3a; opacity: 0.8; }
+.map-connector.current { fill: var(--accent, #4a8a4a); opacity: 1; }
+
+.map-edge { stroke: #6e6448; stroke-width: 1; opacity: 0.5; }
+.map-edge.visited-edge { stroke: #9c8f6e; stroke-width: 2.6; opacity: 0.9; }
+.map-edge.current-edge { stroke: var(--accent); stroke-width: 3.6; opacity: 1; }
+/* Up/down (vertical) connections — dashed so they read as stairs/shafts, not a walk. */
+.map-edge.vertical-edge { stroke-dasharray: 5 4; stroke: #7a6cae; }
+.map-edge.vertical-edge.visited-edge { stroke: #b3a3e0; }
+
+.zone-label { fill: #6e6448; font-size: 9px; font-family: Georgia, serif; opacity: 0.5; }
+
+/* zoom controls */
+.map-zoom-controls {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+.map-zoom-controls button {
+  background: #0a100a;
+  border: 1px solid var(--panel-border);
+  color: var(--accent);
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1;
+  transition: all .15s;
+}
+.map-zoom-controls button:hover {
+  background: #1a2a1a;
+  border-color: var(--accent);
+}
+
+/* ── Scrollbars ──────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080810; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a3a4a; }
+
+/* ── Animations ──────────────────────────────────────────────────────── */
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.blink { animation: blink 1s step-end infinite; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+.cli-line { animation: fadeIn .15s ease-out; }
+
+/* ── Game Over Overlay ───────────────────────────────────────────────── */
+
+#game-over-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+#game-over-overlay.active { display: flex; }
+#game-over-overlay h2 {
+  font-size: 36px;
+  color: var(--accent2);
+  text-shadow: 0 0 20px var(--accent2);
+  letter-spacing: 8px;
+}
+#game-over-overlay p { color: var(--text-dim); }
+#btn-play-again {
+  background: #1a1008;
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 2px;
+  transition: all .2s;
+}
+#btn-play-again:hover {
+  background: #2a2010;
+  box-shadow: 0 0 12px rgba(212,160,23,.4);
+}

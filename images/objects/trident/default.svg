@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#040c14" rx="8"/>
+  <!-- shaft -->
+  <rect x="38" y="30" width="4" height="42" fill="#88aadd"/>
+  <!-- three tines -->
+  <line x1="40" y1="30" x2="40" y2="10" stroke="#aaccff" stroke-width="3"/>
+  <line x1="30" y1="30" x2="30" y2="12" stroke="#aaccff" stroke-width="2.5"/>
+  <line x1="50" y1="30" x2="50" y2="12" stroke="#aaccff" stroke-width="2.5"/>
+  <!-- tip points -->
+  <polygon points="36,10 44,10 40,6" fill="#aaccff"/>
+  <polygon points="27,12 33,12 30,8" fill="#aaccff"/>
+  <polygon points="47,12 53,12 50,8" fill="#aaccff"/>
+  <!-- crossbar -->
+  <rect x="24" y="28" width="32" height="4" rx="2" fill="#6688cc"/>
+  <!-- glow -->
+  <ellipse cx="40" cy="40" rx="20" ry="30" fill="#0044aa" opacity="0.15"/>
+  <text x="40" y="76" text-anchor="middle" fill="#88aadd" font-family="monospace" font-size="7">trident</text>
+
+</svg>

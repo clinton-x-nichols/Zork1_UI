@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0a0a"/>
+  
+  <rect width="80" height="80" fill="#0a0a0a" rx="8"/>
+  <ellipse cx="40" cy="50" rx="22" ry="22" fill="#3d4a1a"/>
+  <circle cx="40" cy="28" r="16" fill="#4a5520"/>
+  <ellipse cx="32" cy="24" rx="6" ry="7" fill="#8b0000"/>
+  <ellipse cx="48" cy="24" rx="6" ry="7" fill="#8b0000"/>
+  <circle cx="32" cy="25" r="3" fill="#111"/>
+  <circle cx="48" cy="25" r="3" fill="#111"/>
+  <path d="M 32,38 Q 40,44 48,38" stroke="#111" stroke-width="2" fill="none"/>
+  <line x1="26" y1="16" x2="22" y2="10" stroke="#4a5520" stroke-width="3"/>
+  <line x1="54" y1="16" x2="58" y2="10" stroke="#4a5520" stroke-width="3"/>
+  <text x="40" y="76" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">troll</text>
+
+</svg>

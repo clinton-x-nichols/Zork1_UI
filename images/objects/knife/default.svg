@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- blade -->
+  <polygon points="20,38 60,34 60,46 20,42" fill="#888"/>
+  <polygon points="60,34 70,40 60,46" fill="#aaa"/>
+  <!-- handle -->
+  <rect x="8" y="37" width="14" height="6" rx="2" fill="#4a3020"/>
+  <line x1="22" y1="37" x2="22" y2="43" stroke="#555" stroke-width="1.5"/>
+  <text x="40" y="72" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">knife</text>
+
+</svg>

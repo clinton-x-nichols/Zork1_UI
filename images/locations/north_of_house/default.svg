@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  
+  <rect y="0" width="400" height="140" fill="#0d1b2a"/>
+  <rect y="140" width="400" height="160" fill="#1b3a1b"/>
+  <!-- white house facade -->
+  <rect x="50" y="50" width="300" height="120" fill="#e8e8e8" stroke="#bbb" stroke-width="2"/>
+  <polygon points="50,50 200,0 350,50" fill="#d5d5d5" stroke="#bbb" stroke-width="2"/>
+  <!-- boarded windows -->
+  <rect x="80" y="70" width="60" height="45" fill="#999"/>
+  <line x1="80" y1="70" x2="140" y2="115" stroke="#777" stroke-width="3"/>
+  <line x1="140" y1="70" x2="80" y2="115" stroke="#777" stroke-width="3"/>
+  <rect x="260" y="70" width="60" height="45" fill="#999"/>
+  <line x1="260" y1="70" x2="320" y2="115" stroke="#777" stroke-width="3"/>
+  <line x1="320" y1="70" x2="260" y2="115" stroke="#777" stroke-width="3"/>
+  <!-- narrow path north -->
+  <path d="M 175,170 L 165,300 M 225,170 L 235,300" stroke="#4a3a2a" stroke-width="2" fill="none"/>
+  <rect x="165" y="170" width="70" height="130" fill="#3a2a1a" opacity="0.4"/>
+  <!-- trees -->
+  <polygon points="20,200 55,130 90,200" fill="#1b4d1b"/>
+  <polygon points="310,200 345,130 380,200" fill="#1f5a1f"/>
+  <text x="200" y="290" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="14">North of House</text>
+
+</svg>

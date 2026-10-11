@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0a0a"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- bat wings -->
+  <path d="M 40,40 Q 15,20 5,30 Q 10,42 25,40 Q 32,48 40,44" fill="#333"/>
+  <path d="M 40,40 Q 65,20 75,30 Q 70,42 55,40 Q 48,48 40,44" fill="#333"/>
+  <!-- body -->
+  <ellipse cx="40" cy="42" rx="10" ry="8" fill="#222"/>
+  <!-- head -->
+  <circle cx="40" cy="34" r="7" fill="#222"/>
+  <!-- ears -->
+  <polygon points="35,28 38,20 41,28" fill="#333"/>
+  <polygon points="39,28 42,20 45,28" fill="#333"/>
+  <!-- eyes -->
+  <circle cx="37" cy="34" r="2" fill="#cc0000"/>
+  <circle cx="43" cy="34" r="2" fill="#cc0000"/>
+  <text x="40" y="76" text-anchor="middle" fill="#666" font-family="monospace" font-size="7">bat</text>
+
+</svg>

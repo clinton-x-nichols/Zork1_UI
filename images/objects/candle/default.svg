@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- three candles -->
+  <rect x="25" y="38" width="9" height="28" fill="#fffacd"/>
+  <rect x="35" y="30" width="10" height="36" fill="#fffff0"/>
+  <rect x="46" y="40" width="9" height="26" fill="#fffacd"/>
+  <!-- flames -->
+  <ellipse cx="29" cy="36" rx="4" ry="6" fill="#ff8800"/>
+  <ellipse cx="40" cy="28" rx="5" ry="7" fill="#ff8800"/>
+  <ellipse cx="50" cy="38" rx="4" ry="6" fill="#ff8800"/>
+  <ellipse cx="29" cy="34" rx="2" ry="4" fill="#ffcc00"/>
+  <ellipse cx="40" cy="26" rx="3" ry="5" fill="#ffcc00"/>
+  <ellipse cx="50" cy="36" rx="2" ry="4" fill="#ffcc00"/>
+  <!-- wax drips -->
+  <ellipse cx="29" cy="66" rx="5" ry="3" fill="#fffacd" opacity="0.8"/>
+  <ellipse cx="40" cy="66" rx="6" ry="3" fill="#fffff0" opacity="0.8"/>
+  <text x="40" y="76" text-anchor="middle" fill="#fffacd" font-family="monospace" font-size="7">candles</text>
+
+</svg>

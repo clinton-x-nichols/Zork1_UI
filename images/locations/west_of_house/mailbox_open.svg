@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#010008"/>
+    <stop offset="65%" stop-color="#08012a"/>
+    <stop offset="100%" stop-color="#110240"/>
+  </linearGradient>
+  <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#081004"/>
+    <stop offset="100%" stop-color="#030804"/>
+  </linearGradient>
+  <radialGradient id="moonHalo" cx="76%" cy="18%" r="30%">
+    <stop offset="0%" stop-color="#c8bc50" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#08012a" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="winGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#40b800" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#40b800" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="mbxGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#d0b000" stop-opacity="0.9"/>
+    <stop offset="60%" stop-color="#c09000" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#a07000" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="b2"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="b5"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="b8"><feGaussianBlur stdDeviation="8"/></filter>
+  <filter id="b12"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+
+<!-- SKY -->
+<rect width="600" height="450" fill="url(#sky)"/>
+<circle cx="458" cy="80" r="140" fill="url(#moonHalo)"/>
+<circle cx="458" cy="80" r="60"  fill="#cbc580" filter="url(#b2)"/>
+<circle cx="458" cy="80" r="57"  fill="#d4ce8c"/>
+<ellipse cx="442" cy="68" rx="16" ry="10" fill="#b0a860" opacity="0.45"/>
+<ellipse cx="468" cy="93" rx="12" ry="8"  fill="#b0a860" opacity="0.38"/>
+<path d="M438 57 Q448 76 443 103" stroke="#9a9045" stroke-width="1.5" fill="none" opacity="0.4"/>
+<path d="M465 50 Q477 82 461 110" stroke="#9a9045" stroke-width="1"   fill="none" opacity="0.3"/>
+
+<!-- Tentacled clouds -->
+<path d="M372 36 Q390 22 418 36 Q432 18 453 26 Q448 52 428 60 Q408 52 392 64 Q380 56 372 36Z"
+      fill="#0c041e" opacity="0.92"/>
+<path d="M390 62 Q380 80 375 104 Q382 90 390 80 Q396 72 390 62Z" fill="#0c041e" opacity="0.88"/>
+<path d="M378 46 Q360 58 348 75 Q362 66 372 62 Q378 58 378 46Z" fill="#0c041e" opacity="0.82"/>
+<path d="M404 64 Q400 86 396 112 Q402 94 408 80 Q412 70 404 64Z" fill="#0c041e" opacity="0.75"/>
+
+<!-- Stars -->
+<circle cx="28"  cy="14"  r="1.2" fill="#d0d0f8" opacity="0.82"/>
+<circle cx="72"  cy="36"  r="1.0" fill="#c0c0e8" opacity="0.62"/>
+<circle cx="142" cy="11"  r="1.6" fill="#e0e0ff" opacity="0.74"/>
+<circle cx="192" cy="27"  r="0.8" fill="#d0d0f8" opacity="0.54"/>
+<circle cx="238" cy="8"   r="1.3" fill="#c0c0e8" opacity="0.82"/>
+<circle cx="288" cy="22"  r="0.9" fill="#d0d0f8" opacity="0.63"/>
+<circle cx="318" cy="9"   r="1.4" fill="#e0e0ff" opacity="0.72"/>
+<circle cx="60"  cy="82"  r="1.1" fill="#c0c0e8" opacity="0.72"/>
+<circle cx="163" cy="46"  r="1.3" fill="#e0e0ff" opacity="0.63"/>
+<circle cx="538" cy="18"  r="1.0" fill="#d0d0f8" opacity="0.72"/>
+<circle cx="562" cy="44"  r="1.3" fill="#c0c0e8" opacity="0.63"/>
+<circle cx="583" cy="11"  r="0.8" fill="#e0e0ff" opacity="0.82"/>
+
+<!-- Far background trees -->
+<rect x="18"  y="158" width="10" height="78" fill="#090d04" rx="2"/>
+<polygon points="12,168 23,115 34,168" fill="#0b1206"/>
+<rect x="558" y="162" width="9"  height="72" fill="#090d04" rx="2"/>
+<polygon points="553,172 563,122 573,172" fill="#0b1206"/>
+
+<!-- GROUND -->
+<rect y="294" width="600" height="156" fill="url(#gnd)"/>
+<path d="M0,308 Q100,303 200,310 Q300,317 400,306 Q500,299 600,308"
+      stroke="#060c02" stroke-width="7" fill="none" opacity="0.5"/>
+
+<!-- Stone path -->
+<ellipse cx="192" cy="382" rx="34" ry="12" fill="#18140e" opacity="0.7"/>
+<ellipse cx="222" cy="362" rx="28" ry="10" fill="#16120c" opacity="0.65"/>
+<ellipse cx="248" cy="343" rx="24" ry="8"  fill="#14100a" opacity="0.6"/>
+<ellipse cx="268" cy="326" rx="19" ry="7"  fill="#120e08" opacity="0.55"/>
+
+<!-- Fog -->
+<ellipse cx="110" cy="300" rx="155" ry="24" fill="#182200" opacity="0.38" filter="url(#b5)"/>
+<ellipse cx="460" cy="306" rx="128" ry="20" fill="#182200" opacity="0.32" filter="url(#b5)"/>
+<ellipse cx="290" cy="312" rx="190" ry="17" fill="#142000" opacity="0.28" filter="url(#b5)"/>
+
+<!-- Fungi -->
+<circle cx="62"  cy="308" r="9"  fill="#3a1438" opacity="0.82"/>
+<rect   x="60"  y="308" width="5" height="16" fill="#2a0c20" opacity="0.72"/>
+<circle cx="543" cy="313" r="7"  fill="#3a1438" opacity="0.72"/>
+<rect   x="541" y="313" width="4" height="13" fill="#2a0c20" opacity="0.62"/>
+
+<!-- Dead grass -->
+<path d="M482,295 Q487,278 490,295" stroke="#1c2406" stroke-width="1.5" fill="none"/>
+<path d="M488,295 Q493,280 496,295" stroke="#182004" stroke-width="1.5" fill="none"/>
+<path d="M92,295 Q97,278 100,295"   stroke="#182004" stroke-width="1.5" fill="none"/>
+<path d="M98,295 Q103,282 106,295"  stroke="#1c2406" stroke-width="1.5" fill="none"/>
+
+<!-- LEFT TREE -->
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#050804" stroke-width="28" fill="none" stroke-linecap="round"/>
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#201508" stroke-width="22" fill="none" stroke-linecap="round"/>
+<path d="M46 450 Q50 370 54 308 Q57 268 50 228" stroke="#2a1c0a" stroke-width="16" fill="none" stroke-linecap="round"/>
+<path d="M52 298 Q22 262 8 220"  stroke="#2a1c0a" stroke-width="11" fill="none" stroke-linecap="round"/>
+<path d="M8 220 Q-2 198 14 180"  stroke="#2a1c0a" stroke-width="6"  fill="none" stroke-linecap="round"/>
+<path d="M54 268 Q36 238 16 206" stroke="#2a1c0a" stroke-width="9"  fill="none" stroke-linecap="round"/>
+<path d="M54 292 Q78 256 96 218" stroke="#2a1c0a" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M50 228 Q32 198 26 166" stroke="#2a1c0a" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+<path d="M26 166 Q18 148 32 132" stroke="#2a1c0a" stroke-width="4"  fill="none" stroke-linecap="round"/>
+<path d="M50 228 Q62 208 58 176" stroke="#2a1c0a" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="52" cy="324" rx="6"  ry="8"   fill="#100a04" stroke="#3c2808" stroke-width="1"/>
+<ellipse cx="52" cy="324" rx="3"  ry="4"   fill="#500808" opacity="0.8"/>
+<ellipse cx="51" cy="323" rx="1.5" ry="2"  fill="#ff1010" opacity="0.3" filter="url(#b2)"/>
+
+<!-- RIGHT TREE -->
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#201508" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path d="M554 450 Q549 388 544 328 Q539 278 547 232" stroke="#2a1c0a" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M544 298 Q564 262 580 226" stroke="#2a1c0a" stroke-width="8"  fill="none" stroke-linecap="round"/>
+<path d="M544 268 Q526 242 518 212" stroke="#2a1c0a" stroke-width="7"  fill="none" stroke-linecap="round"/>
+<path d="M547 232 Q538 208 545 182" stroke="#2a1c0a" stroke-width="5"  fill="none" stroke-linecap="round"/>
+<ellipse cx="546" cy="342" rx="5"  ry="7"   fill="#100a04" stroke="#3c2808" stroke-width="1"/>
+<ellipse cx="546" cy="342" rx="2.5" ry="3.5" fill="#500808" opacity="0.75"/>
+
+<!-- HOUSE -->
+<rect x="176" y="272" width="244" height="6" rx="3" fill="#040608" opacity="0.82"/>
+<rect x="182" y="104" width="232" height="174" fill="#ddd8c4" stroke="#bab6a6" stroke-width="1.5"/>
+<line x1="182" y1="124" x2="414" y2="124" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="144" x2="414" y2="144" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="164" x2="414" y2="164" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="184" x2="414" y2="184" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<line x1="182" y1="224" x2="414" y2="224" stroke="#c8c4b4" stroke-width="0.6" opacity="0.45"/>
+<polygon points="174,104 298,42 420,104" fill="#382c1e" stroke="#261e10" stroke-width="2"/>
+<line x1="238" y1="104" x2="276" y2="70"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="318" y1="104" x2="318" y2="73"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<line x1="398" y1="104" x2="356" y2="63"  stroke="#261e10" stroke-width="0.9" opacity="0.5"/>
+<polygon points="312,46 315,48 337,46 334,44" fill="#201808" stroke="#181004" stroke-width="1"/>
+<rect x="313" y="48" width="23" height="58" fill="#2a2016" stroke="#201808" stroke-width="1"/>
+<rect x="310" y="44" width="29" height="8"  fill="#1e1606"/>
+<!-- Left window -->
+<rect x="196" y="122" width="76" height="58" fill="#383028" rx="2"/>
+<rect x="198" y="124" width="72" height="54" fill="#261e16" stroke="#36280e" stroke-width="1"/>
+<line x1="198" y1="124" x2="270" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="270" y1="124" x2="198" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="198" y1="151" x2="270" y2="151" stroke="#4a381a" stroke-width="3.5"/>
+<rect x="198" y="124" width="72" height="54" fill="url(#winGlow)"/>
+<g transform="translate(234,116) scale(0.65)" opacity="0.5">
+  <polygon points="0,-15 8.7,7.5 -8.7,7.5"  fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <polygon points="0,15 8.7,-7.5 -8.7,-7.5" fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#8c7c4e" stroke-width="1.2"/>
+</g>
+<!-- Right window -->
+<rect x="322" y="122" width="76" height="58" fill="#383028" rx="2"/>
+<rect x="324" y="124" width="72" height="54" fill="#261e16" stroke="#36280e" stroke-width="1"/>
+<line x1="324" y1="124" x2="396" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="396" y1="124" x2="324" y2="178" stroke="#4a381a" stroke-width="4.5"/>
+<line x1="324" y1="151" x2="396" y2="151" stroke="#4a381a" stroke-width="3.5"/>
+<rect x="324" y="124" width="72" height="54" fill="url(#winGlow)" opacity="0.7"/>
+<g transform="translate(360,116) scale(0.65)" opacity="0.5">
+  <polygon points="0,-15 8.7,7.5 -8.7,7.5"  fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <polygon points="0,15 8.7,-7.5 -8.7,-7.5" fill="none" stroke="#8c7c4e" stroke-width="1.6"/>
+  <circle cx="0" cy="0" r="5" fill="none" stroke="#8c7c4e" stroke-width="1.2"/>
+</g>
+<!-- Door -->
+<rect x="266" y="196" width="62" height="82" fill="#38220e" stroke="#261408" stroke-width="2"/>
+<line x1="266" y1="196" x2="328" y2="278" stroke="#4c2e10" stroke-width="5.5"/>
+<line x1="328" y1="196" x2="266" y2="278" stroke="#4c2e10" stroke-width="5.5"/>
+<line x1="266" y1="237" x2="328" y2="237" stroke="#4c2e10" stroke-width="4"/>
+<circle cx="297" cy="238" r="6" fill="none" stroke="#6a5030" stroke-width="1.8"/>
+<rect x="294" y="239" width="6" height="10" fill="#382810" rx="1.5"/>
+<!-- Porch steps -->
+<rect x="248" y="276" width="98" height="7" fill="#b8b09c" stroke="#a8a08c" stroke-width="0.5" rx="1"/>
+<rect x="254" y="282" width="86" height="6" fill="#aca494" stroke="#9c9484" stroke-width="0.5" rx="1"/>
+<!-- Ivy -->
+<path d="M182 270 Q202 264 222 268 Q244 263 264 267" stroke="#0c1e08" stroke-width="3" fill="none" opacity="0.55"/>
+<path d="M350 268 Q372 263 393 267 Q410 264 414 270" stroke="#0c1e08" stroke-width="3" fill="none" opacity="0.55"/>
+
+<!-- MAILBOX (OPEN) — supernatural amber glow from within -->
+<ellipse cx="115" cy="230" rx="48" ry="34" fill="#c09000" opacity="0.10" filter="url(#b12)"/>
+<ellipse cx="115" cy="234" rx="28" ry="22" fill="#d4a800" opacity="0.16" filter="url(#b8)"/>
+
+<!-- Post -->
+<path d="M114 315 Q116 280 115 252" stroke="#3a2e1e" stroke-width="7" fill="none" stroke-linecap="round"/>
+<line x1="113" y1="275" x2="118" y2="285" stroke="#5e3a18" stroke-width="1.2" opacity="0.55"/>
+<line x1="115" y1="295" x2="120" y2="302" stroke="#5e3a18" stroke-width="1.2" opacity="0.45"/>
+
+<!-- Mailbox body (open, glowing) -->
+<rect x="87" y="232" width="57" height="22" rx="4" fill="#192848" stroke="#3a4e72" stroke-width="1.6"/>
+<!-- Interior glow -->
+<rect x="89" y="234" width="53" height="18" fill="#b87c00" opacity="0.4"/>
+<rect x="89" y="234" width="53" height="18" fill="url(#mbxGlow)" opacity="0.55"/>
+
+<!-- Leaflet visible inside, slightly out — glowing with strange runes -->
+<g transform="translate(94, 230) rotate(-8)">
+  <rect x="0" y="0" width="32" height="22" rx="2" fill="#ece4b0" opacity="0.95"/>
+  <!-- Rune lines -->
+  <line x1="3" y1="5"  x2="29" y2="5"  stroke="#604020" stroke-width="1"   opacity="0.8"/>
+  <line x1="3" y1="9"  x2="26" y2="9"  stroke="#604020" stroke-width="1"   opacity="0.72"/>
+  <line x1="3" y1="13" x2="29" y2="13" stroke="#604020" stroke-width="1"   opacity="0.72"/>
+  <line x1="3" y1="17" x2="22" y2="17" stroke="#604020" stroke-width="1"   opacity="0.64"/>
+  <!-- Eye of Yog at corner -->
+  <ellipse cx="26" cy="14" rx="4.5" ry="5.5" fill="none" stroke="#8a4010" stroke-width="0.9" opacity="0.75"/>
+  <ellipse cx="26" cy="14" rx="1.8" ry="2.2" fill="#8a4010" opacity="0.55"/>
+  <!-- Faint eldritch glow on leaflet -->
+  <rect x="0" y="0" width="32" height="22" rx="2" fill="#ffc000" opacity="0.08"/>
+</g>
+
+<!-- Mailbox lid swung open/upward (rotated back) -->
+<g transform="rotate(-65, 87, 232)">
+  <path d="M87 232 Q115.5 224 144 232 L144 222 Q115.5 211 87 222Z"
+        fill="#1e3464" stroke="#3a4e72" stroke-width="1.5"/>
+  <!-- Inside-lid runes -->
+  <text x="115" y="229" text-anchor="middle" font-size="6" fill="#90c0f0" opacity="0.45"
+        font-family="monospace" letter-spacing="2">∴ ⋱ ∵</text>
+</g>
+
+<!-- Flag (UP — mail present) -->
+<rect x="143" y="222" width="3" height="18" fill="#3a2e1e"/>
+<rect x="143" y="213" width="12" height="9" fill="#8a2010" rx="1"/>
+
+<!-- Vines on post -->
+<path d="M114 295 Q110 288 115 280 Q119 271 114 265" stroke="#162804" stroke-width="2.2" fill="none" opacity="0.62"/>
+<circle cx="111" cy="280" r="2.5" fill="#162804" opacity="0.4"/>
+
+<!-- Amber light cast on ground from open mailbox -->
+<ellipse cx="105" cy="320" rx="34" ry="9" fill="#c09000" opacity="0.07" filter="url(#b5)"/>
+
+<!-- Fog -->
+<ellipse cx="298" cy="296" rx="298" ry="22" fill="#182200" opacity="0.28" filter="url(#b5)"/>
+
+<!-- Labels -->
+<text x="300" y="440" text-anchor="middle" fill="#4e4436" font-family="monospace"
+      font-size="11" letter-spacing="3" opacity="0.65">WEST OF HOUSE</text>
+<text x="300" y="430" text-anchor="middle" fill="#806040" font-family="monospace"
+      font-size="9" letter-spacing="1" opacity="0.5">— mailbox open —</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0808"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- sandwich / lunch box -->
+  <rect x="14" y="35" width="52" height="26" rx="6" fill="#deb887"/>
+  <rect x="14" y="42" width="52" height="5" fill="#8b4513" opacity="0.8"/>
+  <rect x="14" y="35" width="52" height="8" rx="3" fill="#c8a060" opacity="0.8"/>
+  <!-- lettuce -->
+  <path d="M 16,40 Q 30,36 40,40 Q 50,36 64,40" fill="none" stroke="#228b22" stroke-width="3"/>
+  <text x="40" y="76" text-anchor="middle" fill="#deb887" font-family="monospace" font-size="7">lunch</text>
+
+</svg>

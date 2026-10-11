@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <rect width="80" height="80" fill="#0a0a0a"/>
+  
+  <rect width="80" height="80" fill="#0a0808" rx="8"/>
+  <!-- dark figure in shadows -->
+  <ellipse cx="40" cy="50" rx="18" ry="22" fill="#1a1010"/>
+  <circle cx="40" cy="30" r="12" fill="#2a2020"/>
+  <!-- mask/face -->
+  <rect x="30" y="26" width="20" height="8" fill="#111" rx="2"/>
+  <ellipse cx="36" cy="29" rx="3" ry="2" fill="#cc6600" opacity="0.6"/>
+  <ellipse cx="44" cy="29" rx="3" ry="2" fill="#cc6600" opacity="0.6"/>
+  <!-- stiletto glint -->
+  <line x1="55" y1="38" x2="68" y2="28" stroke="#aaa" stroke-width="2"/>
+  <polygon points="65,26 70,26 68,28" fill="#ccc"/>
+  <text x="40" y="76" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">thief</text>
+
+</svg>
