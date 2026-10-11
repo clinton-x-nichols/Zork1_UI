@@ -11,6 +11,16 @@
       "height": 1024,
       "sha256": "4cb666991c062b1d9367f8b85d7e688a2c2979d9ab2d90e8477f122338badd2c",
       "validated": true
+    },
+    {
+      "path": "images/locations/troll_room/troll_unconscious.png",
+      "source": "images/locations/troll_room/default.png",
+      "state": "Troll present in the room with negative strength (unconscious)",
+      "status": "complete",
+      "width": 1697,
+      "height": 927,
+      "sha256": "cf1ecb66741f5439b51fc21ba56ae5db8ceb6746a49f23acc640d7fe7abf0394",
+      "validated": true
     }
   ]
 }

@@ -54,3 +54,14 @@ Review the applicable rights before redistributing or publicly hosting the game
 data and artwork.
 
 Security reports should follow [`SECURITY.md`](SECURITY.md).
+
+## Built with ChatGPT
+
+This graphical edition is a ChatGPT project developed collaboratively through
+many rounds of implementation, artwork generation, gameplay testing, and
+refinement. The browser runtime, interface integration, and much of the custom
+artwork were produced with help from ChatGPT and then validated in the game.
+
+Fork this repository and make it your own. Build new scenes, improve the state
+handling, replace the artwork, add accessibility features, or use the project as
+a starting point for another browser-based interactive-fiction interface.

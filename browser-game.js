@@ -83,7 +83,8 @@ window.BrowserGame = (() => {
     if(dir==='behind_house'&&s.window_open)variants.push('window_open');
     if(dir==='kitchen')variants.push(s.window_open?'scene_window_open':'scene');
     if(dir==='living_room')variants.push(s.trapdoor_open?'scene_trapdoor_open':s.rug_moved?'scene_rug_moved':'scene');
-    if(dir==='troll_room'&&!s.troll_alive)variants.push('troll_defeated_taken');
+    if(dir==='troll_room'&&s.troll_unconscious)variants.push('troll_unconscious');
+    else if(dir==='troll_room'&&!s.troll_present)variants.push('troll_defeated_taken');
     if(dir==='cyclops_room'&&!s.cyclops_present)variants.push('cyclops_gone');
     if(dir==='shaft_room'&&s.scene_objects.some(o=>o.id===108))variants.push('scene_basket_attached');
     if(dir==='machine_room'&&s.scene_objects.some(o=>o.id===207&&o.open))variants.push('scene_open');
@@ -96,6 +97,18 @@ window.BrowserGame = (() => {
     for(const [id,initial] of Object.entries(D.initial)){
       const address=base+(Number(id)-1)*9;
       objects[id]={...initial,parent:m.getUint8(address+4),attributes:m.getUint32(address)};
+    }
+    function property(id, wanted) {
+      const address=base+(Number(id)-1)*9;
+      let cursor=m.getUint16(address+7);
+      cursor+=1+m.getUint8(cursor)*2;
+      while(m.getUint8(cursor)){
+        const header=m.getUint8(cursor++), number=header&31, length=(header>>5)+1;
+        if(number===wanted)return length===1?m.getUint8(cursor):m.getInt16(cursor);
+        if(number<wanted)break;
+        cursor+=length;
+      }
+      return m.getUint16(m.getUint16(10)+(wanted-1)*2);
     }
     const flag=(o,f)=>!!(o.attributes & (1 << (31-D.flags[f])));
     const s=state, rid=roomIds[here];
@@ -132,7 +145,9 @@ window.BrowserGame = (() => {
     Object.assign(s,{scene_objects:scene,inventory_objects:carried,inventory:carried.map(o=>o.name),room_items:scene.map(o=>o.name),
       dropped_items:scene.filter(o=>o.portable&&o.placement==='floor').map(o=>o.name),object_locations:Object.fromEntries(Object.values(objects).map(o=>[o.id,o.parent])),
       mailbox_open:flag(objects[230],'OPENBIT'),leaflet_in_mailbox:objects[76].parent===230,window_open:flag(objects[243],'OPENBIT'),
-      trapdoor_open:flag(objects[240],'OPENBIT'),rug_moved:!flag(objects[240],'INVISIBLE'),troll_alive:objects[150].parent===127,
+      trapdoor_open:flag(objects[240],'OPENBIT'),rug_moved:!flag(objects[240],'INVISIBLE'),
+      troll_present:objects[150].parent===127,troll_unconscious:objects[150].parent===127&&property(150,7)<0,
+      troll_alive:objects[150].parent===127,troll_blocks_exits:objects[150].parent===127&&property(150,7)>=0,
       cyclops_present:objects[199].parent===78,reservoir_empty:flag(objects[95],'RLANDBIT'),grating_visible:!flag(objects[29],'INVISIBLE'),
       grating_open:flag(objects[29],'OPENBIT'),rope_tied:flag(objects[58],'NDESCBIT')&&objects[58].parent===11,
       mirror_broken:!!m.getUint16(globals+70),dark:!(flag(objects[here],'ONBIT')||[...scene,...carried].some(o=>o.light&&o.lit)),scene_sync_error:null,locked_scenes:[]});

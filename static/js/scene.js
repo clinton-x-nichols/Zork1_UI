@@ -74,7 +74,7 @@ const ZorkScene = (() => {
       'GRATING-CLEARING': {down: next.grating_visible && next.grating_open},
       'GRATING-ROOM': {up: next.grating_open},
       'DOME-ROOM': {down: next.rope_tied},
-      'TROLL-ROOM': {east: !next.troll_alive, west: !next.troll_alive},
+      'TROLL-ROOM': {east: !next.troll_blocks_exits, west: !next.troll_blocks_exits},
       'CYCLOPS-ROOM': {up: !next.cyclops_present},
     };
     for (const [direction, open] of Object.entries(gates[next.room_id] || {})) {
@@ -273,6 +273,7 @@ const ZorkScene = (() => {
         }
       }
       if (!pos && actors[item.id]) pos = [65,58];
+      if (next.troll_unconscious && item.id === 36) { pos = [60,84]; hotspot = true; }
       if (!pos && hotspot) { pos = [8 + (fixtureIndex % 4)*24,22 + Math.floor(fixtureIndex/4)*14]; fixtureIndex++; }
       if (!pos) { pos = [12+(floorIndex%7)*12,84-Math.floor(floorIndex/7)*14]; floorIndex++; }
       positions.set(item.id,pos);
