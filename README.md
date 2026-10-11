@@ -54,6 +54,7 @@ Review the applicable rights before redistributing or publicly hosting the game
 data and artwork.
 
 Security reports should follow [`SECURITY.md`](SECURITY.md).
+Deferred maintenance is tracked in [`TODO.md`](TODO.md).
 
 ## Built with ChatGPT
 
